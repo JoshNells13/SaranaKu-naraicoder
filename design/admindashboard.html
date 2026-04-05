@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard | Aspirations</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#727785",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c2c6d6",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b75b00",
+                        "primary": "#0058be",
+                        "secondary-container": "#b6ccff",
+                        "on-secondary-fixed-variant": "#304671",
+                        "tertiary-fixed": "#ffdcc6",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-secondary-container": "#405682",
+                        "on-secondary-fixed": "#001a42",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#424754",
+                        "secondary": "#495e8a",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b1c6f9",
+                        "on-tertiary-fixed": "#311400",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#2170e4",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005ac2",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary": "#924700",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#fefcff",
+                        "secondary-fixed": "#d8e2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+    <div class="flex min-h-screen">
+        <!-- SideNavBar -->
+        <aside class="flex flex-col h-screen w-64 bg-slate-50 border-r-0 fixed left-0 top-0 z-40 p-4 gap-2">
+            <div class="px-4 py-6 mb-4">
+                <h2 class="text-lg font-black text-slate-900 tracking-tight">Aspiration Portal</h2>
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Academic Curator v1.0</p>
+            </div>
+            <nav class="flex-1 flex flex-col gap-2">
+                <!-- Active Tab: Dashboard -->
+                <a class="flex items-center gap-3 bg-blue-600 text-white rounded-lg px-4 py-2 shadow-md shadow-blue-500/20 transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 text-slate-600 px-4 py-2 hover:bg-slate-200 rounded-lg transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    <span>Submit Aspiration</span>
+                </a>
+                <a class="flex items-center gap-3 text-slate-600 px-4 py-2 hover:bg-slate-200 rounded-lg transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                    <span>My Aspirations</span>
+                </a>
+                <a class="flex items-center gap-3 text-slate-600 px-4 py-2 hover:bg-slate-200 rounded-lg transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    <span>Admin Analytics</span>
+                </a>
+                <a class="flex items-center gap-3 text-slate-600 px-4 py-2 hover:bg-slate-200 rounded-lg transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+                    <span>Manage Content</span>
+                </a>
+                <a class="flex items-center gap-3 text-slate-600 px-4 py-2 hover:bg-slate-200 rounded-lg transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="history">history</span>
+                    <span>System Logs</span>
+                </a>
+            </nav>
+            <div class="mt-auto border-t border-slate-200 pt-4">
+                <a class="flex items-center gap-3 text-slate-600 px-4 py-2 hover:bg-slate-200 rounded-lg transition-all duration-200 ease-in-out font-semibold text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    <span>Log Out</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Main Content Canvas -->
+        <main class="flex-1 ml-64 min-h-screen pb-12">
+            <!-- TopNavBar -->
+            <header
+                class="fixed top-0 right-0 left-64 z-50 bg-white/70 backdrop-blur-xl h-16 px-6 flex justify-between items-center shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                            <span class="material-symbols-outlined text-sm">search</span>
+                        </span>
+                        <input
+                            class="pl-10 pr-4 py-2 bg-slate-100 border-none rounded-full text-sm focus:ring-2 focus:ring-primary-container w-64 transition-all"
+                            placeholder="Search Aspirations..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-4 text-slate-500 font-manrope tracking-tight text-sm">
+                        <a class="hover:bg-slate-100 px-3 py-1 rounded transition-colors" href="#">Help</a>
+                        <a class="hover:bg-slate-100 px-3 py-1 rounded transition-colors" href="#">Documentation</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="material-symbols-outlined text-slate-500 hover:bg-slate-100 p-2 rounded-full transition-colors"
+                            data-icon="notifications">notifications</button>
+                        <button
+                            class="material-symbols-outlined text-slate-500 hover:bg-slate-100 p-2 rounded-full transition-colors"
+                            data-icon="settings">settings</button>
+                        <div class="h-8 w-8 rounded-full bg-primary-fixed overflow-hidden border border-primary/20">
+                            <img alt="User profile" class="h-full w-full object-cover"
+                                data-alt="Professional headshot of a school administrator in a bright office setting with soft natural light"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtHPVvbKNFVnaz9iR2Y6MW_m-yT_wrp47tjqYXGT266XpTkhUQ0HznD4IDKfIUVOJVXvRzobWcKQx8fsryBAVX7zQtWAxwrNjjiUZzTASYiunBxEk5bKI2kgPvQX8rbf_vkZWsbfGqXeq-0-2sgVQmfx9RDy9MNSC7hVJrx5ofhtdF7ReUptJYpAFUEA3akcYkGa_0QfalcJ6cD9nFy2g_xg_Y3PhpFtgw1Cq6dL2SXLDbyQ7M7GcHCfYmsW0u-z4ft9Ho99Q66nOf" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="mt-24 px-10">
+                <!-- Page Header -->
+                <div class="mb-10">
+                    <h1 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Admin Overview</h1>
+                    <p class="text-on-surface-variant max-w-2xl font-medium">Welcome back, Principal Henderson. Here is
+                        the latest data curated for your academic strategic review.</p>
+                </div>
+                <!-- Bento Grid: Analytics Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                    <!-- Total Submissions -->
+                    <div
+                        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-0 border-outline-variant/10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-primary-fixed text-primary rounded-lg">
+                                <span class="material-symbols-outlined" data-icon="description">description</span>
+                            </div>
+                            <span
+                                class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">+12%</span>
+                        </div>
+                        <p class="text-sm font-semibold text-on-surface-variant mb-1">Total Submissions</p>
+                        <h3 class="text-2xl font-bold text-on-surface">1,482</h3>
+                    </div>
+                    <!-- Pending Review -->
+                    <div
+                        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-0 border-outline-variant/10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-tertiary-fixed text-tertiary rounded-lg">
+                                <span class="material-symbols-outlined"
+                                    data-icon="pending_actions">pending_actions</span>
+                            </div>
+                            <span
+                                class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm font-semibold text-on-surface-variant mb-1">Pending Review</p>
+                        <h3 class="text-2xl font-bold text-on-surface">43</h3>
+                    </div>
+                    <!-- Approved -->
+                    <div
+                        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-0 border-outline-variant/10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-secondary-container text-secondary rounded-lg">
+                                <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                            </div>
+                            <span
+                                class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">+5.2%</span>
+                        </div>
+                        <p class="text-sm font-semibold text-on-surface-variant mb-1">Approved Aspirations</p>
+                        <h3 class="text-2xl font-bold text-on-surface">892</h3>
+                    </div>
+                    <!-- Rejected/Returned -->
+                    <div
+                        class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-0 border-outline-variant/10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-error-container text-error rounded-lg">
+                                <span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+                            </div>
+                            <span class="text-xs font-bold text-rose-600 bg-rose-50 px-2 py-1 rounded-full">-2.4%</span>
+                        </div>
+                        <p class="text-sm font-semibold text-on-surface-variant mb-1">Returned for Edit</p>
+                        <h3 class="text-2xl font-bold text-on-surface">156</h3>
+                    </div>
+                </div>
+                <!-- Main Grid: Charts & Tables -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Weekly Bar Chart -->
+                    <div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+                        <div class="flex justify-between items-center mb-8">
+                            <div>
+                                <h2 class="text-xl font-bold text-on-surface tracking-tight">Submission Volume</h2>
+                                <p class="text-xs text-on-surface-variant font-medium">Aspirations categorized by weekly
+                                    activity</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="px-3 py-1 text-xs font-bold bg-slate-100 rounded-lg">Weekly</button>
+                                <button
+                                    class="px-3 py-1 text-xs font-bold text-on-surface-variant hover:bg-slate-100 rounded-lg">Monthly</button>
+                            </div>
+                        </div>
+                        <!-- Visual Mockup of Bar Chart -->
+                        <div class="relative h-64 flex items-end gap-6 pt-6">
+                            <!-- Chart Y-Axis Labels -->
+                            <div
+                                class="absolute left-0 top-0 h-full flex flex-col justify-between text-[10px] text-on-surface-variant font-bold pr-2">
+                                <span>200</span>
+                                <span>150</span>
+                                <span>100</span>
+                                <span>50</span>
+                                <span>0</span>
+                            </div>
+                            <!-- Bar Items (Asymmetric heights for editorial look) -->
+                            <div class="flex-1 ml-8 h-full flex items-end justify-around">
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-gradient-to-t from-primary to-primary-container rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 60%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Mon</span>
+                                </div>
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-gradient-to-t from-primary to-primary-container rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 85%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Tue</span>
+                                </div>
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-gradient-to-t from-primary to-primary-container rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 45%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Wed</span>
+                                </div>
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-gradient-to-t from-primary to-primary-container rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 70%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Thu</span>
+                                </div>
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-gradient-to-t from-primary to-primary-container rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 95%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Fri</span>
+                                </div>
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-slate-200 rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 25%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sat</span>
+                                </div>
+                                <div class="flex flex-col items-center group w-12">
+                                    <div class="w-full bg-slate-200 rounded-t-lg transition-all duration-300 group-hover:opacity-80"
+                                        style="height: 15%"></div>
+                                    <span
+                                        class="mt-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Category Breakdown (Asymmetric Sidebar in Grid) -->
+                    <div class="bg-primary text-white p-8 rounded-xl shadow-xl flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-bold tracking-tight mb-2">Category Split</h2>
+                            <p class="text-white/70 text-sm font-medium mb-8">Dominant academic pursuits for Q4.</p>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest">
+                                        <span>STEM Research</span>
+                                        <span>42%</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white rounded-full" style="width: 42%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest">
+                                        <span>Liberal Arts</span>
+                                        <span>28%</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white rounded-full" style="width: 28%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest">
+                                        <span>Athletics</span>
+                                        <span>18%</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white rounded-full" style="width: 18%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest">
+                                        <span>Community Service</span>
+                                        <span>12%</span>
+                                    </div>
+                                    <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+                                        <div class="h-full bg-white rounded-full" style="width: 12%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="mt-8 py-3 w-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm rounded-lg border border-white/20 transition-all">View
+                            Full Report</button>
+                    </div>
+                </div>
+                <!-- Recent Submissions Table Section -->
+                <section class="mt-12 bg-surface-container-lowest p-8 rounded-xl shadow-sm overflow-hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-xl font-bold text-on-surface tracking-tight">Recent Submissions</h2>
+                        <button class="text-primary font-bold text-sm hover:underline">View All Entries</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="text-[10px] text-on-surface-variant uppercase tracking-widest font-black">
+                                    <th class="pb-4 px-2">Aspiration Title</th>
+                                    <th class="pb-4 px-2">Student Name</th>
+                                    <th class="pb-4 px-2">Submission Date</th>
+                                    <th class="pb-4 px-2">Current Status</th>
+                                    <th class="pb-4 px-2 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="group hover:bg-slate-50 transition-colors">
+                                    <td class="py-4 px-2">
+                                        <div class="font-bold text-sm text-on-surface">Microplastic Research in Local
+                                            Streams</div>
+                                    </td>
+                                    <td class="py-4 px-2">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-7 h-7 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Portrait of a female college student with a bright smile"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8oA2KDkEZKJd_KcZnguxd8CvEEtyQ8P8sXr2fSwyGlbn5JME_NJzaizY2qU2P1iE7SGiI4ofE7_2ja1uMwQmKlkBoLrm7zH1Vn0ksLfotX-tZ3EWPdhWVJcqAvb0qXa3X84xHget3uVpPquKZ0l4JpkMI62f-SXne5I3IHG4JUHe4EdSnSr8QbP6C3Mt5CxCgpiyyVWR1NkuCkUtlyZ7OZd1C4kIRUKLoIzGWj4TRve0zGhSYoYkJByM6jjloAn_Zt_E9ca5nW30r" />
+                                            </div>
+                                            <span class="text-sm font-medium text-on-surface-variant">Elena
+                                                Rodriguez</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-2 text-sm text-slate-500">Oct 24, 2024</td>
+                                    <td class="py-4 px-2">
+                                        <span
+                                            class="bg-amber-50 text-amber-700 text-[10px] font-black uppercase px-2 py-1 rounded-full">Pending</span>
+                                    </td>
+                                    <td class="py-4 px-2 text-right">
+                                        <button
+                                            class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors"
+                                            data-icon="more_vert">more_vert</button>
+                                    </td>
+                                </tr>
+                                <tr class="group hover:bg-slate-50 transition-colors">
+                                    <td class="py-4 px-2">
+                                        <div class="font-bold text-sm text-on-surface">Community Mural Project</div>
+                                    </td>
+                                    <td class="py-4 px-2">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-7 h-7 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Portrait of a male high school student wearing glasses"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKTIuDfB2QX3YeCE7Wqm1NzfSChBwH_kYXDWWZT6floSLJITfqsauMiAm_NUQFF121EzBE3Ip_D27agr8ySnxi51LqMWNNaMI_dDdWOvjy8dH4qSaEnqLU8GKRQ9whj61eM4foQFE1HmtxZ6ULEk6wWLD9nQViuBBRNJUZjY7wV38jeGX4Y-HWFUEFlearRnTc5dpfx8-zi4tL9a29gl5wnmyEg28stAW4vaaREfd3CcyBiiIf9mBvmZgmwuLAsqWrakjOM-3mVJCi" />
+                                            </div>
+                                            <span class="text-sm font-medium text-on-surface-variant">Jameson
+                                                Clarke</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-2 text-sm text-slate-500">Oct 23, 2024</td>
+                                    <td class="py-4 px-2">
+                                        <span
+                                            class="bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase px-2 py-1 rounded-full">Approved</span>
+                                    </td>
+                                    <td class="py-4 px-2 text-right">
+                                        <button
+                                            class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors"
+                                            data-icon="more_vert">more_vert</button>
+                                    </td>
+                                </tr>
+                                <tr class="group hover:bg-slate-50 transition-colors">
+                                    <td class="py-4 px-2">
+                                        <div class="font-bold text-sm text-on-surface">Autonomous Drone Navigation</div>
+                                    </td>
+                                    <td class="py-4 px-2">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-7 h-7 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Close up portrait of a young woman with curly hair"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGHWBgYP-OVyHAFaNM3olvZcTHqDf3v4r6auuO5-KVFpefSFKtmljDPVfEVwuqaoMDEyUNhPGzR2TUdsWIvtno59Xc23CSVmErxjEkwN3P2vpR2C8whrH1B4F7n5OQ7wYR7LhxJUx_k2dAdWixTwEbi2I-P5BPbWJWpO9Xi3Gsnr0PDy-Vg2PcN1xhDwXuPuRMvHkpKS5cCKQS08I7CSqTUmTgyhqpqqE6IRf5AUPVQzcKubUdf8UvMM-OLW6Z3G89RW5J-GcSCa8g" />
+                                            </div>
+                                            <span class="text-sm font-medium text-on-surface-variant">Sarah Wu</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-2 text-sm text-slate-500">Oct 23, 2024</td>
+                                    <td class="py-4 px-2">
+                                        <span
+                                            class="bg-blue-50 text-blue-700 text-[10px] font-black uppercase px-2 py-1 rounded-full">Processing</span>
+                                    </td>
+                                    <td class="py-4 px-2 text-right">
+                                        <button
+                                            class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors"
+                                            data-icon="more_vert">more_vert</button>
+                                    </td>
+                                </tr>
+                                <tr class="group hover:bg-slate-50 transition-colors">
+                                    <td class="py-4 px-2">
+                                        <div class="font-bold text-sm text-on-surface">Symphonic Composition for Youth
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-2">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-7 h-7 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Portrait of a young adult woman with short hair"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_94rgO3t9Ci6nfZY2laEAL5AiX5FaeTxb_SgPinprSlC9zTTyh0-WNl3H_D3tRBwyH4MHwCI_AeDeN5ekYyNxKlGRibwxPAbZsEgt2k_NEh7rW2Vecf--g5CGuKvIw5rRViObneuQzDha4YUOjfp0Iby7yBFgIX0OJgxSWqYeMFjppaRtIB8CmVlPYyQE22o8S2-Y8WfhzMtMjnl194FVMXA6irtaol_mVBGQQ6wk1NC9FA5WdmyLUWQNunyNrYVfxIb4eTaXm_j8" />
+                                            </div>
+                                            <span class="text-sm font-medium text-on-surface-variant">Amara Okoro</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-2 text-sm text-slate-500">Oct 22, 2024</td>
+                                    <td class="py-4 px-2">
+                                        <span
+                                            class="bg-emerald-50 text-emerald-700 text-[10px] font-black uppercase px-2 py-1 rounded-full">Approved</span>
+                                    </td>
+                                    <td class="py-4 px-2 text-right">
+                                        <button
+                                            class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors"
+                                            data-icon="more_vert">more_vert</button>
+                                    </td>
+                                </tr>
+                                <tr class="group hover:bg-slate-50 transition-colors">
+                                    <td class="py-4 px-2">
+                                        <div class="font-bold text-sm text-on-surface">School Garden Irrigation
+                                            Optimization</div>
+                                    </td>
+                                    <td class="py-4 px-2">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-7 h-7 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Portrait of a smiling young man in a denim shirt"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy_eg8SRQecWwGbHe2YXg2wYAXKaYlUlZ9jP1Rr6SLtHJErzib_6bBHIbHEWzoYEGJ_ACn1fDqLI4YnJcoIC0DNmY3mYyDS6dDb6SNM49CMYx8bDZtyhTx8E2t-kr2DPXvHVCtU3lDiluMmMzPtQBSbGfp4Hvof85aMat3cOFO4ooq3g_GfNpGvZjWGxqf3cPWdbpiZibnhe1ti3X6Rt8ZfBWvLQ95xsIAbOcACp3gEtyvhzigp7IGFTW3bvlX7PN3wCqi0ohMQuG7" />
+                                            </div>
+                                            <span class="text-sm font-medium text-on-surface-variant">Leo Bennett</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-2 text-sm text-slate-500">Oct 21, 2024</td>
+                                    <td class="py-4 px-2">
+                                        <span
+                                            class="bg-rose-50 text-rose-700 text-[10px] font-black uppercase px-2 py-1 rounded-full">Returned</span>
+                                    </td>
+                                    <td class="py-4 px-2 text-right">
+                                        <button
+                                            class="material-symbols-outlined text-slate-400 hover:text-primary transition-colors"
+                                            data-icon="more_vert">more_vert</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <!-- Footer -->
+            <footer
+                class="w-full py-8 mt-12 bg-slate-50 flex flex-col items-center justify-center space-y-4 border-t border-slate-200">
+                <div class="flex gap-8">
+                    <a class="text-xs text-slate-400 hover:text-blue-500 transition-colors" href="#">Privacy Policy</a>
+                    <a class="text-xs text-slate-400 hover:text-blue-500 transition-colors" href="#">Terms of
+                        Service</a>
+                    <a class="text-xs text-slate-400 hover:text-blue-500 transition-colors" href="#">Contact Support</a>
+                </div>
+                <p class="text-[10px] font-body text-slate-400 uppercase tracking-widest">© 2024 Editorial SaaS
+                    Aspirations. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Manage Aspirations | Aspirations Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#727785",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c2c6d6",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b75b00",
+                        "primary": "#0058be",
+                        "secondary-container": "#b6ccff",
+                        "on-secondary-fixed-variant": "#304671",
+                        "tertiary-fixed": "#ffdcc6",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-secondary-container": "#405682",
+                        "on-secondary-fixed": "#001a42",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#424754",
+                        "secondary": "#495e8a",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b1c6f9",
+                        "on-tertiary-fixed": "#311400",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#2170e4",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005ac2",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary": "#924700",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#fefcff",
+                        "secondary-fixed": "#d8e2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .paper-shadow {
+            shadow: 0 4px 32px 0 rgba(25, 28, 30, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface flex overflow-hidden">
+    <!-- SideNavBar Component -->
+    <aside class="hidden md:flex flex-col h-screen w-64 bg-slate-50 dark:bg-slate-950 p-4 gap-2 border-r-0 shrink-0">
+        <div class="mb-8 px-4">
+            <h1 class="text-lg font-black text-slate-900 dark:text-white font-headline">Aspiration Portal</h1>
+            <p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Academic Curator v1.0</p>
+        </div>
+        <nav class="flex flex-col gap-1 flex-1">
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined">add_circle</span>
+                Submit Aspiration
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined">list_alt</span>
+                My Aspirations
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined">analytics</span>
+                Admin Analytics
+            </a>
+            <a class="bg-blue-600 text-white rounded-lg px-4 py-2 shadow-md shadow-blue-500/20 flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined">settings_suggest</span>
+                Manage Content
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined">history</span>
+                System Logs
+            </a>
+        </nav>
+        <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+            <button
+                class="w-full flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 font-semibold text-sm">
+                <span class="material-symbols-outlined">logout</span>
+                Log Out
+            </button>
+        </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+        <!-- TopNavBar Component -->
+        <header
+            class="fixed top-0 w-full md:relative z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl flex justify-between items-center h-16 px-6 shadow-sm dark:shadow-none">
+            <div class="flex items-center gap-4 flex-1">
+                <div class="relative max-w-md w-full">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+                    <input
+                        class="w-full pl-10 pr-4 py-2 bg-slate-100/50 dark:bg-slate-800/50 border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 transition-all font-body"
+                        placeholder="Search aspirations..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <nav class="hidden lg:flex items-center gap-4 font-manrope tracking-tight text-sm">
+                    <a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-md"
+                        href="#">Help</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-md"
+                        href="#">Documentation</a>
+                </nav>
+                <div class="flex items-center gap-2">
+                    <button
+                        class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-transform active:scale-95">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-transform active:scale-95">
+                        <span class="material-symbols-outlined">settings</span>
+                    </button>
+                    <div
+                        class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden ml-2 border border-outline-variant">
+                        <img alt="User profile" class="h-full w-full object-cover"
+                            data-alt="Professional avatar of a male academic administrator with glasses and a friendly expression in a minimalist vector style"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCueG8fMWni7e1NdrzJA4n7OCi-CZ5E2OkLBM5KBFcHwH7glp93dXrlDmgs6tuNIJFOQq0ozIT5YEruBzMvy0PS6B85PUZzZ-0pLfelMZGpqj8ap-F7hLDcv0jNRH4nFNIJkmdBEJm8tWkgGfW-4BsjAk7t19SOcGZODhOUaoaZDcfCcJTIawUZU7uQSXGfO-wbJ-5FdC84aIELBoR9PVl16LMTr2zNFzRezIo_j5NV7XuYNI-ryQy1u7TwEdcO5xiN_uC-jA0QDFzz" />
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto p-6 md:p-8 mt-16 md:mt-0">
+            <div class="max-w-7xl mx-auto space-y-8">
+                <!-- Page Header & Stats -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-1">
+                        <h2 class="text-3xl font-extrabold tracking-tight font-headline text-on-surface">Manage
+                            Aspirations</h2>
+                        <p class="text-on-surface-variant font-body">Reviewing student goals and curriculum alignments
+                            for the 2024 Semester.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-semibold text-sm flex items-center gap-2 shadow-sm transition-transform active:scale-95">
+                            <span class="material-symbols-outlined text-lg">download</span>
+                            Export Report
+                        </button>
+                    </div>
+                </div>
+                <!-- Filters Strip -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-surface-container-low p-4 rounded-xl">
+                    <div class="space-y-1.5">
+                        <label
+                            class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant px-1">Status</label>
+                        <select
+                            class="w-full bg-surface-container-lowest border-none rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20">
+                            <option>All Statuses</option>
+                            <option>Pending Review</option>
+                            <option>Approved</option>
+                            <option>Needs Revision</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label
+                            class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant px-1">Category</label>
+                        <select
+                            class="w-full bg-surface-container-lowest border-none rounded-lg text-sm font-medium focus:ring-2 focus:ring-primary/20">
+                            <option>All Categories</option>
+                            <option>STEM Research</option>
+                            <option>Liberal Arts</option>
+                            <option>Community Impact</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant px-1">Date
+                            Range</label>
+                        <button
+                            class="w-full bg-surface-container-lowest text-left px-3 py-2 rounded-lg text-sm font-medium flex items-center justify-between text-on-surface-variant">
+                            Last 30 Days
+                            <span class="material-symbols-outlined text-sm">calendar_month</span>
+                        </button>
+                    </div>
+                    <div class="flex items-end">
+                        <button
+                            class="w-full py-2 px-4 text-primary font-bold text-sm hover:bg-primary/5 rounded-lg transition-colors">
+                            Clear All Filters
+                        </button>
+                    </div>
+                </div>
+                <!-- Table View -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr
+                                    class="bg-surface-container-low/50 text-on-surface-variant text-[11px] font-bold uppercase tracking-widest">
+                                    <th class="px-6 py-4 w-12">
+                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                    </th>
+                                    <th class="px-4 py-4">Aspiration Title</th>
+                                    <th class="px-4 py-4">Student Name</th>
+                                    <th class="px-4 py-4">Category</th>
+                                    <th class="px-4 py-4">Date Submitted</th>
+                                    <th class="px-4 py-4">Status</th>
+                                    <th class="px-4 py-4 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-surface-container-low">
+                                <!-- Row 1 -->
+                                <tr class="hover:bg-surface-container-low/30 transition-colors group">
+                                    <td class="px-6 py-5">
+                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="font-semibold text-sm text-on-surface">Neural Mapping Robotics</div>
+                                        <div class="text-xs text-on-surface-variant">Grant Proposal #442</div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Student profile photo with neutral background, bright studio lighting, soft facial features"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhfJKYbOVo7zH_xQ0ERD543Z7F4MN6P-apfoKC4hnqU2HUGAH8hqKvzplg8vcZfcZfXfWvdJi7L2l7m3qFgpIRgJyUgyWbiY4HK8WvV2aFKg64dhwuQxwWU5bFvUoeNe8DlzDPJcztfrXgF9XlnYVbhKBlywv2zk37UNLbhhaEyaILvzqHYWsk6Eiip47c0uWqQq3HmnVOnXXPaNLZoOz3BTUx6TK59ibtcbfl2sYhb4Vdh9sLMWSJukFZ2s-YxCzj-CaLW1ButiV4" />
+                                            </div>
+                                            <span class="text-sm font-medium">Alex Rivera</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="text-xs font-semibold px-2 py-1 bg-surface-container rounded-md">STEM</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-sm text-on-surface-variant">Oct 24, 2024</td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider">Pending</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-1">
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all"
+                                                title="View Detail">
+                                                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all"
+                                                title="Quick Reply">
+                                                <span class="material-symbols-outlined text-[20px]">reply</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all"
+                                                title="Update Status">
+                                                <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="hover:bg-surface-container-low/30 transition-colors group">
+                                    <td class="px-6 py-5">
+                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="font-semibold text-sm text-on-surface">Sustainable Urban Gardening
+                                        </div>
+                                        <div class="text-xs text-on-surface-variant">Community Project #312</div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Young female student with a smiling expression, casual academic attire, warm natural lighting"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5_UJwpISW9GvgTHo4NKkCTUcEnmfZmEXiAsmXcgTlanygpk8medJLrwbsaJbmlel6Q45zIU-DD8aYWXm0BMdBQlsDFs3N1gxaDnbbE4oS19CD_KWsHk9u4I4mBDhwnR2wbSnKImT16-1V4XBHDrC4pCayWTMNc7L2H6FVd-ulbPFksGp2tV97rzDPsNFXhtk7ghil1jsq_e3APe_4RWKhDwgABw6O19hIrlg3LpGYqUguQz_QuGp8bX5lZZ2M1ANadGOHBaT2Epnv" />
+                                            </div>
+                                            <span class="text-sm font-medium">Jordan Smith</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="text-xs font-semibold px-2 py-1 bg-surface-container rounded-md">Eco-Tech</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-sm text-on-surface-variant">Oct 22, 2024</td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">Approved</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-1">
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">reply</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="hover:bg-surface-container-low/30 transition-colors group">
+                                    <td class="px-6 py-5">
+                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="font-semibold text-sm text-on-surface">The Ethics of AI in Law</div>
+                                        <div class="text-xs text-on-surface-variant">Thesis Draft #109</div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Student with diverse background, focused expression, library setting background in soft blur"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvuJmAPuWIFIAiBEPyfCfwUlqukAk1OSFeBsmo8Q-cyigluoR3NiCdWvHjY1WScPPnlUkINzPoLWusI7-C7B6__MASV8pyfA8hRNRuEmQpANRIkIN90SVoUj03YQyqWgDZiwoe4v8aW8c_L2Os5_AW81G_FJ-JQKXFiZiTW5qMlpMeI_u8IZd_Z2cFiZll79AaTfI9DKQnen1lJbzV5QJTj5ZLfkTj4n1c84YBIH0UDfv8acogeqeqEUwOLmFbf7p-gNmp1z5xGTfU" />
+                                            </div>
+                                            <span class="text-sm font-medium">Elena Vance</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="text-xs font-semibold px-2 py-1 bg-surface-container rounded-md">Humanities</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-sm text-on-surface-variant">Oct 21, 2024</td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-[10px] font-bold uppercase tracking-wider">Revision</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-1">
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">reply</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr class="hover:bg-surface-container-low/30 transition-colors group">
+                                    <td class="px-6 py-5">
+                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="font-semibold text-sm text-on-surface">Modern Jazz Composition</div>
+                                        <div class="text-xs text-on-surface-variant">Performance Piece #88</div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                                <img alt="Student" class="w-full h-full object-cover"
+                                                    data-alt="Student holding a musical instrument case, artistic attire, bright outdoor urban lighting"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHu0dgoo0E6VXy13Q_Nn4dYIMSLXLQBMtiqNovtvlKV5skWJ1a1T2oMLyAlKDAu3RYQgpZ0L7d4Svn3plVdzxs03bDWVtSw55oRHdH6KJRZbuFkusVcPA41qUctAl9vbrwQprTcEPgvUUFCBNdXJh-n_KacT50Hs7Z4OAlrmMvNukAwpvlLc78K3QJM64N04ZP036UHntcgRMYLdf6_AnC_KU_zuiJuuf-vxYVMq2T9wPLEumU2p5ec2mAjQ9Mb01jp29ztzgSt0Xf" />
+                                            </div>
+                                            <span class="text-sm font-medium">Marcus Chen</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="text-xs font-semibold px-2 py-1 bg-surface-container rounded-md">Fine
+                                            Arts</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-sm text-on-surface-variant">Oct 20, 2024</td>
+                                    <td class="px-4 py-5">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider">Pending</span>
+                                    </td>
+                                    <td class="px-4 py-5 text-right">
+                                        <div class="flex items-center justify-end gap-1">
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">reply</span>
+                                            </button>
+                                            <button
+                                                class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-all">
+                                                <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="flex items-center justify-between px-6 py-4 bg-surface-container-low/20">
+                        <div class="text-xs text-on-surface-variant font-medium">
+                            Showing <span class="text-on-surface font-bold">1-4</span> of <span
+                                class="text-on-surface font-bold">1,240</span> Aspirations
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <button class="p-2 text-slate-400 hover:text-primary transition-colors disabled:opacity-50"
+                                disabled="">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold shadow-sm shadow-primary/30">1</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high text-xs font-medium transition-colors">2</button>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high text-xs font-medium transition-colors">3</button>
+                            <span class="px-1 text-slate-400">...</span>
+                            <button
+                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-high text-xs font-medium transition-colors">45</button>
+                            <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Subtle Tonal Cards (Contextual Info) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-primary-fixed p-6 rounded-xl space-y-2 border border-primary-fixed-dim/20">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-on-primary-fixed-variant">Review
+                                Velocity</span>
+                            <span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                        </div>
+                        <div class="text-2xl font-black font-headline text-on-primary-fixed">12.4 hrs</div>
+                        <p class="text-xs text-on-primary-fixed-variant leading-relaxed">Average response time for new
+                            submissions this week.</p>
+                    </div>
+                    <div class="bg-surface-container p-6 rounded-xl space-y-2 border border-outline-variant/20">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Top
+                                Category</span>
+                            <span class="material-symbols-outlined text-secondary text-lg">category</span>
+                        </div>
+                        <div class="text-2xl font-black font-headline text-on-surface">STEM Research</div>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">Accounts for 42% of all active
+                            aspirations currently.</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-lowest p-6 rounded-xl space-y-2 border border-outline-variant/10 shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Pending
+                                Actions</span>
+                            <span class="material-symbols-outlined text-error text-lg">priority_high</span>
+                        </div>
+                        <div class="text-2xl font-black font-headline text-on-surface">18 Items</div>
+                        <p class="text-xs text-on-surface-variant leading-relaxed">Critical reviews required before the
+                            semester lock date.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Component -->
+        <footer
+            class="w-full py-8 bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center space-y-4 border-t border-slate-200 dark:border-slate-800 mt-auto">
+            <div class="flex gap-8">
+                <a class="text-slate-400 font-inter text-xs hover:text-blue-500 transition-colors" href="#">Privacy
+                    Policy</a>
+                <a class="text-slate-400 font-inter text-xs hover:text-blue-500 transition-colors" href="#">Terms of
+                    Service</a>
+                <a class="text-slate-400 font-inter text-xs hover:text-blue-500 transition-colors" href="#">Contact
+                    Support</a>
+            </div>
+            <p class="text-slate-400 font-inter text-xs">© 2024 Editorial SaaS Aspirations. All rights reserved.</p>
+        </footer>
+    </main>
+    <!-- Mobile Navigation Suppressed as per Task-Focused Page Policy -->
+</body>
+
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Aspiration Detail | Aspirations</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-high": "#e6e8ea",
+                        "outline": "#727785",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c2c6d6",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b75b00",
+                        "primary": "#0058be",
+                        "secondary-container": "#b6ccff",
+                        "on-secondary-fixed-variant": "#304671",
+                        "tertiary-fixed": "#ffdcc6",
+                        "primary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-secondary-container": "#405682",
+                        "on-secondary-fixed": "#001a42",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#424754",
+                        "secondary": "#495e8a",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#b1c6f9",
+                        "on-tertiary-fixed": "#311400",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#2170e4",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#005ac2",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary": "#924700",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#adc6ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#fefcff",
+                        "secondary-fixed": "#d8e2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 32px 64px -12px rgba(0, 88, 190, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-background min-h-screen flex overflow-hidden">
+    <!-- SideNavBar Shell -->
+    <aside class="hidden md:flex flex-col h-screen w-64 bg-slate-50 dark:bg-slate-950 p-4 gap-2 shrink-0">
+        <div class="mb-8 px-4">
+            <h1 class="text-lg font-black text-slate-900 dark:text-white">Aspiration Portal</h1>
+            <p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Academic Curator v1.0</p>
+        </div>
+        <nav class="flex flex-col gap-1 flex-1">
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span> Submit Aspiration
+            </a>
+            <!-- Active Tab: My Aspirations -->
+            <a class="bg-blue-600 text-white rounded-lg px-4 py-2 shadow-md shadow-blue-500/20 flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="list_alt">list_alt</span> My Aspirations
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="analytics">analytics</span> Admin Analytics
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span> Manage
+                Content
+            </a>
+            <a class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="history">history</span> System Logs
+            </a>
+        </nav>
+        <div class="mt-auto border-t border-slate-200 pt-4">
+            <button
+                class="text-slate-600 dark:text-slate-400 px-4 py-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-all duration-200 ease-in-out flex items-center gap-3 font-semibold text-sm w-full">
+                <span class="material-symbols-outlined" data-icon="logout">logout</span> Log Out
+            </button>
+        </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto bg-surface relative">
+        <!-- TopAppBar Shell (Glassmorphic) -->
+        <header
+            class="fixed top-0 right-0 left-0 md:left-64 z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl h-16 flex justify-between items-center px-8 shadow-sm dark:shadow-none">
+            <div class="flex items-center gap-4">
+                <button
+                    class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors cursor-pointer active:scale-95">
+                    <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    <span class="font-manrope font-bold text-sm tracking-tight">Back to List</span>
+                </button>
+            </div>
+            <div class="flex items-center gap-6">
+                <nav class="hidden lg:flex items-center gap-6 font-manrope tracking-tight text-sm">
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors"
+                        href="#">Help</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors"
+                        href="#">Documentation</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full"><span
+                            class="material-symbols-outlined">notifications</span></button>
+                    <button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full"><span
+                            class="material-symbols-outlined">settings</span></button>
+                    <img alt="User profile" class="w-8 h-8 rounded-full border-2 border-primary-fixed"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgx37juchxTEE3N2Pm-GkU86n0vLVUaBBatQVNBz9R3xT8hwFvdTWXz8QA2RUv96t-qZd9L8hS5zVTERgXM6gQ9bw7_ttqPDhfKDW9pQ7cDy-dCJzjw61m5TtXjJbDSFIixvpB9Dx8ih3tesKUrJ5BslVYlhd_Ea-5-Mlv3ie9kXPLthZnZqKIwK3K-Ix0cJzwopr2XDFTS7WtoZOPwpj6ka6vo8CqVCNr34BL-VpC2ZcPbjKBFuC9GEfIeccTzYbB0kBqrlSRVM7u" />
+                </div>
+            </div>
+        </header>
+        <div class="pt-24 pb-12 px-8 max-w-6xl mx-auto w-full">
+            <!-- Breadcrumbs & Status -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+                    <span>Aspirations</span>
+                    <span class="material-symbols-outlined text-xs">chevron_right</span>
+                    <span class="text-primary font-semibold">ASP-2024-8842</span>
+                </div>
+                <div
+                    class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    In Review
+                </div>
+            </div>
+            <!-- Content Grid: Asymmetric Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Column: Main Detail (Column Span 8) -->
+                <div class="lg:col-span-8 space-y-8">
+                    <!-- Hero Section Card -->
+                    <section class="bg-surface-container-lowest rounded-xl p-8 editorial-shadow">
+                        <h2 class="text-3xl font-extrabold text-on-surface leading-tight tracking-tighter mb-6">
+                            Implementing Quantum Computing Modules in Undergraduate Physics Curriculum
+                        </h2>
+                        <div
+                            class="prose prose-slate max-w-none text-on-surface-variant leading-relaxed space-y-4 font-body">
+                            <p>
+                                I am proposing a fundamental shift in our 3rd-year Physics curriculum to include a
+                                dedicated track for Practical Quantum Computing. As the industry moves toward quantum
+                                advantage, our graduates must be equipped with the theoretical foundations and the
+                                practical skills to program using Qiskit and Braket.
+                            </p>
+                            <p>
+                                This aspiration involves procuring three high-performance simulation workstations and
+                                establishing a partnership with local research labs. The goal is to provide a "hands-on"
+                                experience that transcends the purely mathematical approach traditionally taught.
+                            </p>
+                        </div>
+                        <!-- Attachments -->
+                        <div class="mt-10 pt-8 border-t border-surface-container">
+                            <h3 class="text-sm font-black uppercase tracking-widest text-on-surface-variant mb-4">
+                                Attachments (3)</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div
+                                    class="flex items-center p-3 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+                                    <span class="material-symbols-outlined text-red-500 mr-3">picture_as_pdf</span>
+                                    <div class="flex-1 overflow-hidden">
+                                        <p class="text-sm font-semibold truncate">Curriculum_Proposal_v2.pdf</p>
+                                        <p class="text-[10px] text-on-surface-variant">2.4 MB • PDF Document</p>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary">download</span>
+                                </div>
+                                <div
+                                    class="flex items-center p-3 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+                                    <span class="material-symbols-outlined text-red-500 mr-3">picture_as_pdf</span>
+                                    <div class="flex-1 overflow-hidden">
+                                        <p class="text-sm font-semibold truncate">Budget_Requirements.pdf</p>
+                                        <p class="text-[10px] text-on-surface-variant">840 KB • PDF Document</p>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined text-slate-400 group-hover:text-primary">download</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Admin Responses Section -->
+                    <section class="space-y-6">
+                        <div class="flex items-center gap-4 px-2">
+                            <h3 class="text-xl font-bold tracking-tight">Academic Board Feedback</h3>
+                            <div class="h-px bg-surface-container-high flex-1"></div>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- Response Card 1 -->
+                            <div
+                                class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+                                <div class="flex items-start gap-4">
+                                    <img alt="Admin Profile" class="w-10 h-10 rounded-full bg-primary-fixed"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcE8qm0V62f4Ql8iAuRof9Ifx2KJXWr1nOwkimKAN7ZqmnJrhUeYwhsQC2GBX-7GnbEC0p2ay3tVXmyLJ4bJzyNFq0BhLZb3txV_aNvqvxfp9XHqXYiALkwMHDcnqVegVay5PVPxXF0pOwJg_4msoMxRUGm7I-BzmsWx2YzH4Sa3wPMasvpEXfkj5ew-c4_mvBMUTjnn3P81-5eNOq8E1KkQEGUXtXfkgYdymem9nkUN_GhPoJDnW2vK3f6CaqZ296scMpNX58g5-1" />
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div>
+                                                <h4 class="font-bold text-on-surface">Dr. Julian Detmer</h4>
+                                                <p class="text-xs text-primary font-semibold">Head of Curriculum Review
+                                                </p>
+                                            </div>
+                                            <span class="text-xs text-on-surface-variant">Oct 14, 2024</span>
+                                        </div>
+                                        <p class="text-on-surface-variant text-sm leading-relaxed italic">
+                                            "This is a visionary proposal. I am particularly impressed by the
+                                            integration of Braket. We need to ensure that the prerequisites for the 2nd
+                                            year are adjusted to handle the linear algebra requirements earlier."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Response Card 2 -->
+                            <div
+                                class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-container"></div>
+                                <div class="flex items-start gap-4">
+                                    <img alt="Admin Profile" class="w-10 h-10 rounded-full bg-tertiary-fixed"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBd9J--sC3qNW-a8SjDRTrPOvQlJ962uR3ZjTnNknzjGHlQgNLSUagspqWKF8H7H5x_mdvbLsOJd3Xp6LruDyTQZ5KLfACfdYxUTJTRgxtS8w1oXwXCsKfcz_UZZuTJp7fkK5l9TBMS4R3T_-9YHq_d4D7-qOYW9B3fJtrWDAI8sUbxCUa8QcIVy7mdvQ5oYTzv2_t-Zxd4YJd3l3VsUR5e4897WyXAuyXF3CFKEPSZs3N4mKy5KBPiNPM5B_BmFX46GknJkzxB-PW" />
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <div>
+                                                <h4 class="font-bold text-on-surface">Sarah Sterling</h4>
+                                                <p class="text-xs text-on-tertiary-fixed-variant font-semibold">
+                                                    Financial Planning Officer</p>
+                                            </div>
+                                            <span class="text-xs text-on-surface-variant">Oct 16, 2024</span>
+                                        </div>
+                                        <p class="text-on-surface-variant text-sm leading-relaxed italic">
+                                            "Budget for workstations is currently under review. Please provide a more
+                                            detailed breakdown of the 'Maintenance &amp; Licensing' costs for the
+                                            simulators mentioned on page 4."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Right Column: Timeline & Meta (Column Span 4) -->
+                <aside class="lg:col-span-4 space-y-6">
+                    <!-- Timeline Card -->
+                    <div class="bg-surface-container-low rounded-xl p-6">
+                        <h3 class="text-sm font-black uppercase tracking-widest text-on-surface-variant mb-6">Activity
+                            Timeline</h3>
+                        <div class="relative space-y-8">
+                            <!-- Vertical Line -->
+                            <div class="absolute left-3 top-2 bottom-2 w-0.5 bg-outline-variant/30"></div>
+                            <!-- Timeline Item: Completed -->
+                            <div class="relative flex gap-4 items-start pl-8">
+                                <div
+                                    class="absolute left-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white z-10">
+                                    <span class="material-symbols-outlined text-xs"
+                                        style="font-variation-settings: 'FILL' 1;">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-on-surface">Submitted</p>
+                                    <p class="text-xs text-on-surface-variant">Oct 10, 2024 • 10:45 AM</p>
+                                    <p class="text-xs mt-1 text-slate-500">Initial document draft uploaded.</p>
+                                </div>
+                            </div>
+                            <!-- Timeline Item: Completed -->
+                            <div class="relative flex gap-4 items-start pl-8">
+                                <div
+                                    class="absolute left-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white z-10">
+                                    <span class="material-symbols-outlined text-xs"
+                                        style="font-variation-settings: 'FILL' 1;">check</span>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-on-surface">Assigned to Reviewer</p>
+                                    <p class="text-xs text-on-surface-variant">Oct 12, 2024 • 02:15 PM</p>
+                                    <p class="text-xs mt-1 text-slate-500">Forwarded to Academic Review Board.</p>
+                                </div>
+                            </div>
+                            <!-- Timeline Item: Current/Pending -->
+                            <div class="relative flex gap-4 items-start pl-8">
+                                <div
+                                    class="absolute left-0 w-6 h-6 rounded-full bg-white border-2 border-primary flex items-center justify-center z-10">
+                                    <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-primary">Response Posted</p>
+                                    <p class="text-xs text-on-surface-variant">Oct 16, 2024 • 04:30 PM</p>
+                                    <p class="text-xs mt-1 font-medium text-primary">Feedback requires student
+                                        attention.</p>
+                                </div>
+                            </div>
+                            <!-- Timeline Item: Future -->
+                            <div class="relative flex gap-4 items-start pl-8 opacity-40">
+                                <div
+                                    class="absolute left-0 w-6 h-6 rounded-full bg-outline-variant/30 flex items-center justify-center z-10">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-on-surface">Final Approval</p>
+                                    <p class="text-xs text-on-surface-variant">Estimated: Oct 30, 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Visual Accent Card -->
+                    <div class="relative h-48 rounded-xl overflow-hidden group">
+                        <img alt="University Context"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Modern minimalist university architecture with glass walls and clean lines in bright daylight"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCZ5mnnEnOYJBkmVb_eWK_N6G_n6NxIrir75zxGcjOUkBYTPDmBFsYUTdSaK4YLesverC4SRDEBWuqeMkKqbKyApxE_nxzzl4H6wIoCZkKWZ19PY9kmFZqyJCJXT0coPPknR6J_L7hECjR1Ezaw7FXXAr54mDS5lI-hWslxDglLNj6zGzmgEC3HMYUnFA8RqVwh-xn4u0JsG7gq4ZO0mmF70GePpVXCpWLZiflSHildYfks31_JmZAVFvGDi6nrnfgS4Q8zm4QWlde" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+                            <p class="text-white font-manrope font-bold leading-tight">Your aspiration is part of the
+                                2024 Science Initiative.</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!-- Footer Shell -->
+        <footer
+            class="w-full py-8 mt-auto flex flex-col items-center justify-center space-y-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+            <p class="font-inter text-xs text-slate-400">© 2024 Editorial SaaS Aspirations. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="font-inter text-xs text-slate-400 hover:text-blue-500" href="#">Privacy Policy</a>
+                <a class="font-inter text-xs text-slate-400 hover:text-blue-500" href="#">Terms of Service</a>
+                <a class="font-inter text-xs text-slate-400 hover:text-blue-500" href="#">Contact Support</a>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>
