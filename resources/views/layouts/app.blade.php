@@ -132,5 +132,7 @@
 
     {{-- Mobile Bottom Nav --}}
     <x-mobile-nav :active="$active ?? ''" />
+
+    @stack('scripts')
 </body>
 </html>

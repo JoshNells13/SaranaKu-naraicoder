@@ -6,30 +6,29 @@
   <img src="https://img.shields.io/badge/Sanctum-Auth-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
 </p>
 
-# 🎓 SaranaKu — School Aspiration Platform
+#  SaranaKu — School Aspiration Platform
 
 **SaranaKu** adalah platform aspirasi sekolah yang memungkinkan siswa menyampaikan ide, saran, dan kritik kepada pihak sekolah secara terstruktur. Admin dapat mengelola, menanggapi, dan memperbarui status setiap aspirasi secara real-time.
-
-> *"Empowering your future, one aspiration at a time."*
+*
 
 ---
 
-## ✨ Fitur Utama
+##  Fitur Utama
 
-### 👩‍🎓 Siswa (Student)
+###  Siswa (Student)
 - **Dashboard** — Statistik aspirasi pribadi & trending aspirasi komunitas
 - **Submit Aspirasi** — Form lengkap dengan kategori, lampiran file, dan opsi anonim
 - **My Aspirations** — Daftar semua aspirasi dengan status badge dan pagination
 - **Detail Aspirasi** — Timeline aktivitas, lampiran, dan tanggapan admin
 - **Voting System** — Like/Unlike aspirasi dengan feedback visual instan (Alpine.js)
 
-### 🛡️ Admin
+###  Admin
 - **Analytics Dashboard** — Total submissions, pending review, approved, returned + category breakdown
 - **Manage Aspirations** — Tabel data dengan filter status, kategori, dan pencarian
 - **Response Page** — Form tanggapan resmi dengan update status, prioritas, dan opsi internal note
 - **Notification System** — Notifikasi otomatis ke siswa saat ada tanggapan
 
-### 🔧 Teknis
+###  Teknis
 - **Role-based Access** — Middleware `role:murid` dan `role:admin`
 - **Soft Deletes** — Aspirasi yang dihapus tidak hilang permanen
 - **File Upload** — Multi-file upload dengan validasi tipe & ukuran
@@ -38,7 +37,7 @@
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 | Layer | Teknologi |
 |-------|-----------|
