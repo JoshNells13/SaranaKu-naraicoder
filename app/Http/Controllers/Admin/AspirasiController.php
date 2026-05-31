@@ -60,7 +60,10 @@ class AspirasiController extends Controller
             'judul' => 'Tanggapan Baru',
             'pesan' => 'Aspirasi "' . $aspirasi->judul . '" telah mendapat tanggapan dari admin.',
             'tipe' => 'response',
-            'data' => ['aspirasi_id' => $aspirasi->id],
+            'data' => [
+                'aspirasi_id' => $aspirasi->id,
+                'url' => route('aspirasi.show', $aspirasi->id)
+            ],
         ]);
 
         return redirect()->route('admin.aspirasi.index')
@@ -72,5 +75,13 @@ class AspirasiController extends Controller
         $aspirasi->update(['status' => request('status')]);
 
         return response()->json(['success' => true, 'status' => $aspirasi->status]);
+    }
+
+    public function destroy(Aspirasi $aspirasi)
+    {
+        $aspirasi->delete();
+
+        return redirect()->route('admin.aspirasi.index')
+            ->with('success', 'Aspirasi berhasil dihapus!');
     }
 }

@@ -22,13 +22,6 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
 
-            if ($user->role !== $request->role) {
-                Auth::logout();
-                return back()->withErrors([
-                    'role' => 'Email tidak terdaftar sebagai ' . ($request->role === 'admin' ? 'Admin' : 'Student') . '.',
-                ])->withInput();
-            }
-
             if ($user->isAdmin()) {
                 return redirect()->route('admin.dashboard');
             }

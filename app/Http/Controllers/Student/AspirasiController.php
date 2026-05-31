@@ -76,6 +76,12 @@ class AspirasiController extends Controller
 
         $aspirasi->loadCount(['upvotes', 'downvotes']);
 
+        // Mark related notifications as read
+        Notifikasi::where('user_id', auth()->id())
+            ->where('is_read', false)
+            ->where('data->aspirasi_id', $aspirasi->id)
+            ->update(['is_read' => true]);
+
         $userVote = \App\Models\Vote::where('user_id', auth()->id())
             ->where('aspirasi_id', $aspirasi->id)
             ->value('type');

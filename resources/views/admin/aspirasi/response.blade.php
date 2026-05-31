@@ -15,7 +15,16 @@
     <div class="lg:col-span-5 space-y-6">
         <div class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow">
             <div class="flex items-center justify-between mb-4">
-                <x-status-badge :status="$aspirasi->status" />
+                <div class="flex items-center gap-2">
+                    <x-status-badge :status="$aspirasi->status" />
+                    <form action="{{ route('admin.aspirasi.destroy', $aspirasi) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus aspirasi ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-rose-500 hover:text-rose-700 p-1 rounded-md hover:bg-rose-50 transition-colors flex items-center" title="Hapus Aspirasi">
+                            <span class="material-symbols-outlined text-sm">delete</span>
+                        </button>
+                    </form>
+                </div>
                 <span class="text-xs text-on-surface-variant">{{ $aspirasi->created_at->format('M d, Y') }}</span>
             </div>
             <h2 class="text-2xl font-extrabold font-headline text-on-surface mb-4 leading-tight">{{ $aspirasi->judul }}</h2>

@@ -37,14 +37,14 @@ class VoteController extends Controller
             $userVote = $request->type;
         }
 
-        $upvotes = $aspirasi->upvotes()->count();
-        $downvotes = $aspirasi->downvotes()->count();
+        $upvotes = $aspirasi->votes()->where('type', 'up')->count();
+        $downvotes = $aspirasi->votes()->where('type', 'down')->count();
 
         return response()->json([
             'upvotes' => $upvotes,
             'downvotes' => $downvotes,
             'score' => $upvotes - $downvotes,
-            'userVote' => $userVote, // null = no vote, 'up' = liked, 'down' = disliked
+            'userVote' => $userVote,
         ]);
     }
 }

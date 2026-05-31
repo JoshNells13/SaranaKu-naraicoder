@@ -6,6 +6,7 @@
 
     $studentItems = [
         ['route' => 'student.dashboard', 'icon' => 'dashboard', 'label' => 'Dasbor', 'key' => 'dashboard'],
+        ['route' => 'notifikasi.index', 'icon' => 'notifications', 'label' => 'Notifikasi', 'key' => 'notifikasi', 'badge' => $user->notifikasi()->unread()->count()],
         ['route' => 'aspirasi.create', 'icon' => 'add_circle', 'label' => 'Ajukan Aspirasi', 'key' => 'submit'],
         ['route' => 'aspirasi.index', 'icon' => 'list_alt', 'label' => 'Aspirasi Saya', 'key' => 'my-aspirations'],
     ];
@@ -36,6 +37,7 @@
                 :icon="$item['icon']"
                 :label="$item['label']"
                 :active="$active === $item['key']"
+                :badge="$item['badge'] ?? 0"
             />
         @endforeach
     </nav>

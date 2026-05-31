@@ -45,14 +45,18 @@
                 </p>
             </div>
             <div class="flex items-center gap-8">
-                <div class="flex gap-6 items-center">
-                    <div class="flex flex-col items-center">
-                        <span class="text-on-surface font-bold">{{ $item->upvotes_count - $item->downvotes_count }}</span>
-                        <span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-tighter">Suara</span>
+                <div class="flex gap-4 items-center">
+                    <div class="flex flex-col items-center bg-green-50 px-2 py-1 rounded-lg">
+                        <span class="text-green-600 font-bold text-sm">{{ $item->upvotes_count }}</span>
+                        <span class="text-green-600/60 text-[9px] uppercase font-bold tracking-tighter leading-none mt-0.5">Suka</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-rose-50 px-2 py-1 rounded-lg">
+                        <span class="text-rose-500 font-bold text-sm">{{ $item->downvotes_count }}</span>
+                        <span class="text-rose-500/60 text-[9px] uppercase font-bold tracking-tighter leading-none mt-0.5">Ditolak</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <span class="text-on-surface font-bold">{{ number_format($item->views_count) }}</span>
-                        <span class="text-on-surface-variant text-[10px] uppercase font-bold tracking-tighter">Tayangan</span>
+                        <span class="text-on-surface font-bold text-sm">{{ number_format($item->views_count) }}</span>
+                        <span class="text-on-surface-variant text-[9px] uppercase font-bold tracking-tighter leading-none mt-0.5">Tayangan</span>
                     </div>
                 </div>
                 <a href="{{ route('aspirasi.show', $item) }}"

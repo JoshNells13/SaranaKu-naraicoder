@@ -16,7 +16,6 @@ class LoginRequest extends FormRequest
         return [
             'email' => ['required', 'email'],
             'password' => ['required'],
-            'role' => ['required', 'in:murid,admin'],
         ];
     }
 
@@ -26,8 +25,6 @@ class LoginRequest extends FormRequest
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
             'password.required' => 'Password wajib diisi.',
-            'role.required' => 'Pilih peran Anda.',
-            'role.in' => 'Peran tidak valid.',
         ];
     }
 }

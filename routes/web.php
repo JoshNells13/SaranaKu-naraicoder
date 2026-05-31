@@ -37,6 +37,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/aspirasi/{aspirasi}/response', [Admin\AspirasiController::class, 'response'])->name('aspirasi.response');
     Route::post('/aspirasi/{aspirasi}/response', [Admin\AspirasiController::class, 'storeResponse'])->name('aspirasi.storeResponse');
     Route::patch('/aspirasi/{aspirasi}/status', [Admin\AspirasiController::class, 'updateStatus'])->name('aspirasi.updateStatus');
+    Route::delete('/aspirasi/{aspirasi}', [Admin\AspirasiController::class, 'destroy'])->name('aspirasi.destroy');
 });
 
 // Shared authenticated routes

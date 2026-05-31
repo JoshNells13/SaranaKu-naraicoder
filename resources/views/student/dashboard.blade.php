@@ -82,30 +82,31 @@
                                  }
                              }
                          }">
-                        <div class="flex items-center gap-1 bg-surface-container-low p-1.5 rounded-xl">
+                        <div class="flex items-center gap-2 bg-surface-container-low p-1 rounded-xl">
                             {{-- Upvote Button --}}
                             <button @click="vote('up')" :disabled="loading"
                                     :class="userVote === 'up'
-                                        ? 'bg-primary-container text-white shadow-md shadow-blue-500/20'
+                                        ? 'bg-primary text-white shadow-md shadow-blue-500/20'
                                         : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high'"
-                                    class="flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 active:scale-95"
+                                    class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 active:scale-95"
                                     :style="loading ? 'opacity:0.6;cursor:wait' : ''">
-                                <span class="material-symbols-outlined"
+                                <span class="material-symbols-outlined text-sm"
                                       :style="userVote === 'up' ? 'font-variation-settings: \'FILL\' 1' : ''">thumb_up</span>
+                                <span class="text-xs font-bold" x-text="upvotes"></span>
                             </button>
 
-                            {{-- Score --}}
-                            <span class="px-4 font-bold text-on-surface min-w-[3rem] text-center" x-text="score"></span>
+                            <div class="w-px h-4 bg-outline-variant/30"></div>
 
                             {{-- Downvote Button --}}
                             <button @click="vote('down')" :disabled="loading"
                                     :class="userVote === 'down'
                                         ? 'bg-rose-500 text-white shadow-md shadow-rose-500/20'
                                         : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high'"
-                                    class="flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 active:scale-95"
+                                    class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 active:scale-95"
                                     :style="loading ? 'opacity:0.6;cursor:wait' : ''">
-                                <span class="material-symbols-outlined"
+                                <span class="material-symbols-outlined text-sm"
                                       :style="userVote === 'down' ? 'font-variation-settings: \'FILL\' 1' : ''">thumb_down</span>
+                                <span class="text-xs font-bold" x-text="downvotes"></span>
                             </button>
                         </div>
                     </div>

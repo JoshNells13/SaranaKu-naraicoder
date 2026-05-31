@@ -76,12 +76,21 @@
                     </td>
                     <td class="px-4 py-4"><x-status-badge :status="$item->status" /></td>
                     <td class="px-4 py-4 hidden md:table-cell text-xs text-on-surface-variant">{{ $item->created_at->format('M d, Y') }}</td>
-                    <td class="px-4 py-4">
+                    <td class="px-4 py-4 flex items-center gap-2">
                         <a href="{{ route('admin.aspirasi.response', $item) }}"
                            class="bg-primary/10 text-primary hover:bg-primary hover:text-white p-2 rounded-lg transition-all inline-flex text-sm font-bold"
                            title="Tanggapi">
                             <span class="material-symbols-outlined text-sm">reply</span>
                         </a>
+                        <form action="{{ route('admin.aspirasi.destroy', $item) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus aspirasi ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" 
+                                    class="bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white p-2 rounded-lg transition-all inline-flex text-sm font-bold"
+                                    title="Hapus">
+                                <span class="material-symbols-outlined text-sm">delete</span>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @empty
