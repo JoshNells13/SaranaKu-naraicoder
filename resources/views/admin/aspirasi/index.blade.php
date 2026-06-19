@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Manage Aspirations | SaranaKu')
+@section('title', 'Kelola Aspirasi | SaranaKu')
 @php $active = 'manage'; @endphp
 
 @section('content')
@@ -42,7 +42,7 @@
 </div>
 
 {{-- Data Table --}}
-<div class="bg-surface-container-lowest rounded-xl paper-shadow overflow-hidden">
+<div class="bg-surface-container-lowest rounded-xl paper-shadow overflow-x-auto">
     <table class="w-full text-sm">
         <thead>
             <tr class="border-b border-surface-container text-on-surface-variant text-xs font-bold uppercase tracking-widest">

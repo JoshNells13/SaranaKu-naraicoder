@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Student Dashboard | SaranaKu')
+@section('title', 'Dasbor Murid | SaranaKu')
 @php $active = 'dashboard'; @endphp
 
 @section('content')
@@ -17,7 +17,7 @@
 </div>
 
 {{-- Trending Section --}}
-<div class="mb-6 flex items-end justify-between">
+<div class="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
     <div>
         <h2 class="text-2xl font-bold font-headline text-on-surface">Aspirasi Populer</h2>
         <p class="text-sm text-on-surface-variant mt-1">Inisiatif komunitas yang kini mendapatkan perhatian.</p>

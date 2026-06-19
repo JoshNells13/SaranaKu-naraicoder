@@ -49,13 +49,27 @@
             </div>
         </div>
         @if($user)
-            <div
-                class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer bg-primary-fixed flex items-center justify-center">
-                @if($user->avatar)
-                    <img alt="User profile" class="h-full w-full object-cover" src="{{ asset('storage/' . $user->avatar) }}" />
-                @else
-                    <span class="text-xs font-bold text-primary">{{ strtoupper(substr($user->name, 0, 2)) }}</span>
-                @endif
+            <div class="relative" x-data="{ open: false }">
+                <div @click="open = !open"
+                    class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer bg-primary-fixed flex items-center justify-center">
+                    @if($user->avatar)
+                        <img alt="User profile" class="h-full w-full object-cover" src="{{ asset('storage/' . $user->avatar) }}" />
+                    @else
+                        <span class="text-xs font-bold text-primary">{{ strtoupper(substr($user->name, 0, 2)) }}</span>
+                    @endif
+                </div>
+
+                {{-- User Dropdown --}}
+                <div x-show="open" @click.away="open = false" x-transition
+                    class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 md:hidden">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full text-left px-4 py-3 text-sm text-rose-600 hover:bg-slate-50 font-bold flex items-center gap-2 transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">logout</span>
+                            Keluar
+                        </button>
+                    </form>
+                </div>
             </div>
         @endif
     </div>

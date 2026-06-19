@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Admin Dashboard | SaranaKu')
+@section('title', 'Dasbor Admin | SaranaKu')
 @php $active = 'dashboard'; @endphp
 
 @section('content')
@@ -54,7 +54,7 @@
                     Lihat Semua <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
             </div>
-            <div class="bg-surface-container-lowest rounded-xl paper-shadow overflow-hidden">
+            <div class="bg-surface-container-lowest rounded-xl paper-shadow overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead>
                         <tr

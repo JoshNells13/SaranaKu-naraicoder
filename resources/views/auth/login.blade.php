@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', 'SaranaKu | Login')
+@section('title', 'SaranaKu | Masuk')
 @section('content')
     <main
         class="w-full max-w-md bg-surface-container-lowest rounded-[32px] overflow-hidden soft-elevation border border-outline-variant/30">

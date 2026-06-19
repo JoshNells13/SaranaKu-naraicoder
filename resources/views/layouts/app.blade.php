@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>@yield('title', 'SaranaKu - Aspiration Portal')</title>
+    <title>@yield('title', 'SaranaKu - Portal Aspirasi')</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -106,7 +106,7 @@
         <x-navbar />
 
         {{-- Page Content --}}
-        <div class="pt-24 pb-12 px-6 md:px-10 max-w-7xl mx-auto w-full flex-1">
+        <div class="pt-24 pb-24 md:pb-12 px-6 md:px-10 max-w-7xl mx-auto w-full flex-1">
             @if(session('success'))
                 <div class="mb-6 bg-emerald-50 text-emerald-700 px-4 py-3 rounded-xl text-sm font-semibold flex items-center gap-2" x-data="{ show: true }" x-show="show" x-transition>
                     <span class="material-symbols-outlined text-lg">check_circle</span>
