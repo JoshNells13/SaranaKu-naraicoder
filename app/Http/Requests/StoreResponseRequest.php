@@ -15,7 +15,7 @@ class StoreResponseRequest extends FormRequest
     {
         return [
             'isi' => ['required', 'string', 'min:10'],
-            'status' => ['required', 'in:pending,diproses,diterima,ditolak'],
+            'status' => ['required', 'in:pending,diproses,menunggu_persetujuan_atasan,diterima,ditolak'],
             'prioritas' => ['nullable', 'in:rendah,sedang,tinggi'],
             'is_internal' => ['nullable', 'boolean'],
         ];

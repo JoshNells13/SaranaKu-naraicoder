@@ -24,6 +24,8 @@ class LoginController extends Controller
 
             if ($user->isAdmin()) {
                 return redirect()->route('admin.dashboard');
+            } elseif ($user->isAtasan()) {
+                return redirect()->route('atasan.dashboard');
             }
 
             return redirect()->route('student.dashboard');

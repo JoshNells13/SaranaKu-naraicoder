@@ -14,13 +14,14 @@ class Aspirasi extends Model
 
     protected $fillable = [
         'user_id', 'kategori_id', 'judul', 'isi', 'status',
-        'is_anonim', 'prioritas', 'views_count',
+        'is_anonim', 'prioritas', 'views_count', 'estimasi_waktu',
     ];
 
     protected function casts(): array
     {
         return [
             'is_anonim' => 'boolean',
+            'estimasi_waktu' => 'datetime',
         ];
     }
 
@@ -37,6 +38,11 @@ class Aspirasi extends Model
     public function tanggapan()
     {
         return $this->hasMany(Tanggapan::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function votes()

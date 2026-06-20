@@ -6,7 +6,7 @@
 <header
     class="fixed top-0 right-0 left-0 md:left-64 z-50 bg-white/70 backdrop-blur-xl shadow-sm h-16 px-6 flex justify-between items-center">
     <div class="flex items-center gap-4">
-        <span class="text-xl font-bold tracking-tighter text-blue-700 font-headline">SaranaKu</span>
+        <!-- <span class="text-xl font-bold tracking-tighter text-blue-700 font-headline">SaranaKu</span> -->
     </div>
     <div class="flex items-center gap-4">
         <div class="flex items-center gap-2">
@@ -30,7 +30,8 @@
                             @forelse($user->notifikasi()->latest()->take(5)->get() as $notif)
                                 <div onclick="markAsRead('{{ $notif->id }}', '{{ $notif->data['url'] ?? '#' }}')"
                                     class="px-4 py-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 last:border-0 {{ !$notif->is_read ? 'bg-blue-50/50' : '' }}">
-                                    <p class="text-sm {{ !$notif->is_read ? 'font-bold text-slate-900' : 'text-slate-700' }}">{{ $notif->judul }}</p>
+                                    <p class="text-sm {{ !$notif->is_read ? 'font-bold text-slate-900' : 'text-slate-700' }}">
+                                        {{ $notif->judul }}</p>
                                     <p class="text-xs text-slate-500 line-clamp-2">{{ $notif->pesan }}</p>
                                     <p class="text-[10px] text-slate-400 mt-1">{{ $notif->created_at->diffForHumans() }}</p>
                                 </div>
@@ -53,7 +54,8 @@
                 <div @click="open = !open"
                     class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer bg-primary-fixed flex items-center justify-center">
                     @if($user->avatar)
-                        <img alt="User profile" class="h-full w-full object-cover" src="{{ asset('storage/' . $user->avatar) }}" />
+                        <img alt="User profile" class="h-full w-full object-cover"
+                            src="{{ asset('storage/' . $user->avatar) }}" />
                     @else
                         <span class="text-xs font-bold text-primary">{{ strtoupper(substr($user->name, 0, 2)) }}</span>
                     @endif
@@ -64,7 +66,8 @@
                     class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden z-50 md:hidden">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="w-full text-left px-4 py-3 text-sm text-rose-600 hover:bg-slate-50 font-bold flex items-center gap-2 transition-colors">
+                        <button type="submit"
+                            class="w-full text-left px-4 py-3 text-sm text-rose-600 hover:bg-slate-50 font-bold flex items-center gap-2 transition-colors">
                             <span class="material-symbols-outlined text-[20px]">logout</span>
                             Keluar
                         </button>

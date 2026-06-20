@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Tanggapi | SaranaKu')
-@php $active = 'manage'; @endphp
+@section('title', 'Tinjau Aspirasi | SaranaKu')
+@php $active = 'approval'; @endphp
 
 @section('content')
     {{-- Breadcrumbs --}}
     <div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium mb-8">
-        <a href="{{ route('admin.aspirasi.index') }}" class="hover:text-primary">Kelola Aspirasi</a>
+        <a href="{{ route('atasan.aspirasi.index') }}" class="hover:text-primary">Persetujuan Aspirasi</a>
         <span class="material-symbols-outlined text-xs">chevron_right</span>
         <span class="text-primary font-semibold">ASP-{{ str_pad($aspirasi->id, 4, '0', STR_PAD_LEFT) }}</span>
     </div>
@@ -17,16 +17,6 @@
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center gap-2">
                         <x-status-badge :status="$aspirasi->status" />
-                        <form action="{{ route('admin.aspirasi.destroy', $aspirasi) }}" method="POST"
-                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus aspirasi ini?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                class="text-rose-500 hover:text-rose-700 p-1 rounded-md hover:bg-rose-50 transition-colors flex items-center"
-                                title="Hapus Aspirasi">
-                                <span class="material-symbols-outlined text-sm">delete</span>
-                            </button>
-                        </form>
                     </div>
                     <span class="text-xs text-on-surface-variant">{{ $aspirasi->created_at->format('M d, Y') }}</span>
                 </div>
@@ -96,65 +86,47 @@
         {{-- Right Column: Response Form --}}
         <div class="lg:col-span-7">
             <div class="bg-surface-container-lowest rounded-xl p-8 editorial-shadow">
-                <h3 class="text-2xl font-bold font-headline text-on-surface mb-2">Tanggapan Pengurus</h3>
-                <p class="text-on-surface-variant text-sm mb-8">Tulis tanggapan resmi Anda untuk aspirasi ini.</p>
+                <h3 class="text-2xl font-bold font-headline text-on-surface mb-2">Persetujuan Akhir</h3>
+                <p class="text-on-surface-variant text-sm mb-8">Berikan keputusan akhir dan tentukan estimasi waktu penyelesaian.</p>
 
-                <form class="space-y-6" method="POST" action="{{ route('admin.aspirasi.storeResponse', $aspirasi) }}">
+                <form class="space-y-6" method="POST" action="{{ route('atasan.aspirasi.updateStatus', $aspirasi) }}">
                     @csrf
-                    {{-- Status & Priority --}}
+                    @method('PATCH')
+                    {{-- Status & Estimasi --}}
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-on-surface-variant">Perbarui Status</label>
+                            <label class="text-sm font-semibold text-on-surface-variant">Keputusan</label>
                             <select name="status"
                                 class="w-full bg-surface-container-highest border-0 rounded-lg px-4 py-4 text-on-surface focus:ring-2 focus:ring-primary outline-none">
-                                <option value="pending" {{ $aspirasi->status === 'pending' ? 'selected' : '' }}>Menunggu
-                                </option>
-                                <option value="diproses" {{ $aspirasi->status === 'diproses' ? 'selected' : '' }}>Diproses
-                                </option>
-                                <option value="menunggu_persetujuan_atasan" {{ $aspirasi->status === 'menunggu_persetujuan_atasan' ? 'selected' : '' }}>Teruskan ke Atasan
+                                <option value="menunggu_persetujuan_atasan" {{ $aspirasi->status === 'menunggu_persetujuan_atasan' ? 'selected' : '' }}>Menunggu
                                 </option>
                                 <option value="diterima" {{ $aspirasi->status === 'diterima' ? 'selected' : '' }}>Disetujui
                                 </option>
-                                <option value="ditolak" {{ $aspirasi->status === 'ditolak' ? 'selected' : '' }}>Dikembalikan
+                                <option value="ditolak" {{ $aspirasi->status === 'ditolak' ? 'selected' : '' }}>Ditolak
+                                </option>
+                                <option value="diproses" {{ $aspirasi->status === 'diproses' ? 'selected' : '' }}>Diproses (Belum Selesai)
                                 </option>
                             </select>
                             @error('status') <span class="text-error text-xs font-medium">{{ $message }}</span> @enderror
                         </div>
                         <div class="space-y-2">
-                            <label class="text-sm font-semibold text-on-surface-variant">Atur Prioritas</label>
-                            <select name="prioritas"
+                            <label class="text-sm font-semibold text-on-surface-variant">Estimasi Waktu Selesai</label>
+                            <input type="datetime-local" name="estimasi_waktu" value="{{ $aspirasi->estimasi_waktu ? $aspirasi->estimasi_waktu->format('Y-m-d\TH:i') : '' }}"
                                 class="w-full bg-surface-container-highest border-0 rounded-lg px-4 py-4 text-on-surface focus:ring-2 focus:ring-primary outline-none">
-                                <option value="rendah" {{ $aspirasi->prioritas === 'rendah' ? 'selected' : '' }}>Prioritas
-                                    Rendah</option>
-                                <option value="sedang" {{ $aspirasi->prioritas === 'sedang' ? 'selected' : '' }}>Prioritas
-                                    Sedang</option>
-                                <option value="tinggi" {{ $aspirasi->prioritas === 'tinggi' ? 'selected' : '' }}>Prioritas
-                                    Tinggi</option>
-                            </select>
+                            @error('estimasi_waktu') <span class="text-error text-xs font-medium">{{ $message }}</span> @enderror
                         </div>
                     </div>
 
-                    {{-- Response Body --}}
-                    <div class="space-y-2">
-                        <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">edit_note</span> Pesan Tanggapan
-                        </label>
-                        <textarea name="isi"
-                            class="w-full bg-surface-container-lowest border border-outline-variant/20 rounded-lg p-4 text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary outline-none resize-none"
-                            placeholder="Tulis tanggapan mendetail dan umpan balik Anda di sini..."
-                            rows="8">{{ old('isi') }}</textarea>
-                        @error('isi') <span class="text-error text-xs font-medium">{{ $message }}</span> @enderror
-                    </div>
                     {{-- Submit Buttons --}}
-                    <div class="flex justify-end gap-3 pt-4">
-                        <a href="{{ route('admin.aspirasi.index') }}"
+                    <div class="flex justify-end gap-3 pt-4 border-t border-surface-container mt-6">
+                        <a href="{{ route('atasan.aspirasi.index') }}"
                             class="px-6 py-3 rounded-xl text-sm font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">
                             Batal
                         </a>
                         <button type="submit"
                             class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-3 rounded-xl font-bold shadow-md shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-lg">send</span>
-                            Kirim Tanggapan
+                            <span class="material-symbols-outlined text-lg">check_circle</span>
+                            Simpan Keputusan
                         </button>
                     </div>
                 </form>

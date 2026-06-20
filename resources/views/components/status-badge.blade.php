@@ -6,12 +6,14 @@
         'diproses' => 'bg-blue-100 text-blue-700',
         'diterima' => 'bg-emerald-100 text-emerald-700',
         'ditolak' => 'bg-rose-100 text-rose-700',
+        'menunggu_persetujuan_atasan' => 'bg-purple-100 text-purple-700',
     ];
     $labels = [
         'pending' => 'Menunggu',
         'diproses' => 'Diproses',
         'diterima' => 'Disetujui',
         'ditolak' => 'Dikembalikan',
+        'menunggu_persetujuan_atasan' => 'Menunggu Atasan',
     ];
 @endphp
 

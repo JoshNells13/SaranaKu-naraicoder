@@ -31,6 +31,16 @@ class AspirasiController extends Controller
         ));
     }
 
+    public function semua()
+    {
+        $aspirasi = Aspirasi::with('kategori', 'user')
+            ->withCount(['upvotes', 'downvotes'])
+            ->latest()
+            ->paginate(10);
+
+        return view('student.aspirasi.semua', compact('aspirasi'));
+    }
+
     public function create()
     {
         $kategori = Kategori::all();
@@ -72,6 +82,7 @@ class AspirasiController extends Controller
         $aspirasi->load([
             'user', 'kategori', 'lampiran',
             'tanggapan' => fn($q) => $q->where('is_internal', false)->with('admin'),
+            'comments' => fn($q) => $q->whereNull('parent_id')->with(['user', 'replies.user'])->latest(),
         ]);
 
         $aspirasi->loadCount(['upvotes', 'downvotes']);

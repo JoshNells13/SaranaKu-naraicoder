@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->role === 'admin';
     }
 
+    public function isAtasan(): bool
+    {
+        return $this->role === 'atasan';
+    }
+
     public function isMurid(): bool
     {
         return $this->role === 'murid';
@@ -55,5 +60,10 @@ class User extends Authenticatable
     public function tanggapan()
     {
         return $this->hasMany(Tanggapan::class, 'admin_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
