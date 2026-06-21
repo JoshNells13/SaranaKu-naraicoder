@@ -77,11 +77,8 @@
                         <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('register') }}">Daftar
                             Gratis</a>
                     </p>
-                    <p class="text-on-surface-variant font-medium">
-                        Kembali Ke Beranda
-                        <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('home') }}">Kembali Ke
-                            Beranda</a>
-                    </p>
+                    <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('home') }}">Kembali Ke
+                        Beranda</a>
 
 
                 </footer>
