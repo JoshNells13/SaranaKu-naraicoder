@@ -28,8 +28,13 @@
 - **Response Page** — Form tanggapan resmi dengan update status, prioritas, dan opsi internal note
 - **Notification System** — Notifikasi otomatis ke siswa saat ada tanggapan
 
+###  Atasan (Supervisor)
+- **Dashboard** — Ringkasan jumlah persetujuan tertunda dan riwayat tindakan
+- **Persetujuan Aspirasi** — Tabel data aspirasi yang didelegasikan oleh Admin dengan opsi pencarian
+- **Keputusan & Tanggapan** — Halaman peninjauan detail aspirasi, penyuntingan estimasi penyelesaian, dan pemberian keputusan akhir (diterima/ditolak)
+
 ###  Teknis
-- **Role-based Access** — Middleware `role:murid` dan `role:admin`
+- **Role-based Access** — Middleware `role:murid`, `role:admin`, dan `role:atasan`
 - **Soft Deletes** — Aspirasi yang dihapus tidak hilang permanen
 - **File Upload** — Multi-file upload dengan validasi tipe & ukuran
 - **Responsive** — Mobile bottom navigation + sidebar desktop
@@ -245,11 +250,12 @@ Seeder otomatis membuat akun berikut:
 | Role | Email | Password |
 |------|-------|----------|
 | **Admin** | `admin@saranaku.com` | `password` |
+| **Atasan** | `atasan@saranaku.com` | `password` |
 | **Student** | `alex@student.com` | `password` |
 | **Student** | `elena@student.com` | `password` |
 | **Student** | `budi@student.com` | `password` |
 
-> ⚠️ Saat login, pilih role yang sesuai (Student / Admin) di halaman login.
+> ⚠️ Saat login, pilih role yang sesuai (Student / Admin / Atasan) di halaman login.
 
 ---
 
@@ -277,9 +283,17 @@ Seeder otomatis membuat akun berikut:
 |--------|-----|-----------|
 | `GET` | `/admin/dashboard` | Dashboard admin |
 | `GET` | `/admin/aspirasi` | Kelola semua aspirasi |
-| `GET` | `/admin/aspirasi/{id}/response` | Form tanggapan |
+| `GET` | `/admin/aspirasi/{id}/response` | Form tanggapan / Teruskan ke Atasan |
 | `POST` | `/admin/aspirasi/{id}/response` | Kirim tanggapan |
 | `PATCH` | `/admin/aspirasi/{id}/status` | Update status (AJAX) |
+
+### Atasan (`auth + role:atasan`)
+| Method | URI | Deskripsi |
+|--------|-----|-----------|
+| `GET` | `/atasan/dashboard` | Dashboard atasan |
+| `GET` | `/atasan/aspirasi` | Daftar persetujuan aspirasi |
+| `GET` | `/atasan/aspirasi/{id}` | Detail aspirasi & form keputusan |
+| `PATCH` | `/atasan/aspirasi/{id}/status` | Proses keputusan (setujui/tolak) |
 
 ### Shared (`auth`)
 | Method | URI | Deskripsi |
@@ -317,6 +331,7 @@ Klik Downvote → Jika belum vote    → Tambah downvote (tombol aktif merah)
 |--------|-------|-----------|
 | `pending` | 🟡 Amber | Baru disubmit, menunggu review |
 | `diproses` | 🔵 Blue | Sedang ditinjau admin |
+| `menunggu_persetujuan_atasan` | 🟣 Purple | Diteruskan oleh admin ke atasan untuk persetujuan |
 | `diterima` | 🟢 Green | Disetujui dan diterima |
 | `ditolak` | 🔴 Rose | Dikembalikan / ditolak |
 
@@ -388,9 +403,15 @@ Aplikasi menggunakan **Material Design 3** color palette:
 | Field | Rules |
 |-------|-------|
 | `isi` | Wajib, min 10 karakter |
-| `status` | Wajib, salah satu: pending/diproses/diterima/ditolak |
+| `status` | Wajib, salah satu: pending/diproses/menunggu_persetujuan_atasan/diterima/ditolak |
 | `prioritas` | Opsional: rendah/sedang/tinggi |
 | `is_internal` | Opsional, boolean (catatan internal admin) |
+
+### Atasan Response
+| Field | Rules |
+|-------|-------|
+| `status` | Wajib, salah satu: diterima/ditolak/diproses |
+| `estimasi_waktu` | Opsional, format tanggal/date |
 
 ---
 
