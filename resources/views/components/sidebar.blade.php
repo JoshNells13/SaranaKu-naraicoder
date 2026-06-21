@@ -16,6 +16,7 @@
     $adminItems = [
         ['route' => 'admin.dashboard', 'icon' => 'dashboard', 'label' => 'Dasbor', 'key' => 'dashboard'],
         ['route' => 'admin.aspirasi.index', 'icon' => 'settings_suggest', 'label' => 'Kelola Konten', 'key' => 'manage'],
+        ['route' => 'admin.students.index', 'icon' => 'group', 'label' => 'Kelola Murid', 'key' => 'students'],
     ];
 
     $atasanItems = [

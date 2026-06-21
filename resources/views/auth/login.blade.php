@@ -27,10 +27,12 @@
                                 class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary">mail</span>
                             <input
                                 class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all"
-                                id="email" name="email" value="{{ old('email') }}" placeholder="nama@gmail.com" type="email"
-                                required autofocus />
+                                id="email" name="email" value="{{ old('email') }}" placeholder="nama@gmail.com"
+                                type="email" required autofocus />
                         </div>
-                        @error('email') <span class="text-error text-xs font-medium px-1">{{ $message }}</span> @enderror
+                        @error('email')
+                            <span class="text-error text-xs font-medium px-1">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     {{-- Password --}}
@@ -52,7 +54,9 @@
                                     x-text="show ? 'visibility_off' : 'visibility'">visibility</span>
                             </button>
                         </div>
-                        @error('password') <span class="text-error text-xs font-medium px-1">{{ $message }}</span> @enderror
+                        @error('password')
+                            <span class="text-error text-xs font-medium px-1">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     {{-- Submit --}}
@@ -73,6 +77,13 @@
                         <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('register') }}">Daftar
                             Gratis</a>
                     </p>
+                    <p class="text-on-surface-variant font-medium">
+                        Kembali Ke Beranda
+                        <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('home') }}">Kembali Ke
+                            Beranda</a>
+                    </p>
+
+
                 </footer>
             </div>
         </section>

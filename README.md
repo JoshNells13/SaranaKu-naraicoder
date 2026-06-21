@@ -26,6 +26,7 @@
 - **Analytics Dashboard** — Total submissions, pending review, approved, returned + category breakdown
 - **Manage Aspirations** — Tabel data dengan filter status, kategori, dan pencarian
 - **Response Page** — Form tanggapan resmi dengan update status, prioritas, dan opsi internal note
+- **Manage Students (CRUD)** — Kelola akun siswa (tambah, edit, ganti kata sandi, dan hapus) secara penuh
 - **Notification System** — Notifikasi otomatis ke siswa saat ada tanggapan
 
 ###  Atasan (Supervisor)
@@ -69,7 +70,8 @@ laravel/
 │   │   │   │   └── RegisterController.php
 │   │   │   ├── Admin/
 │   │   │   │   ├── DashboardController.php
-│   │   │   │   └── AspirasiController.php
+│   │   │   │   ├── AspirasiController.php
+│   │   │   │   └── StudentController.php
 │   │   │   ├── Student/
 │   │   │   │   ├── DashboardController.php
 │   │   │   │   └── AspirasiController.php
@@ -122,9 +124,13 @@ laravel/
 │   │       └── show.blade.php
 │   └── admin/
 │       ├── dashboard.blade.php
-│       └── aspirasi/
+│       ├── aspirasi/
+│       │   ├── index.blade.php
+│       │   └── response.blade.php
+│       └── students/
 │           ├── index.blade.php
-│           └── response.blade.php
+│           ├── create.blade.php
+│           └── edit.blade.php
 ├── routes/
 │   └── web.php
 └── design/                 # Original HTML design files (reference)
@@ -288,6 +294,12 @@ Seeder otomatis membuat akun berikut:
 | `GET` | `/admin/aspirasi/{id}/response` | Form tanggapan / Teruskan ke Atasan |
 | `POST` | `/admin/aspirasi/{id}/response` | Kirim tanggapan |
 | `PATCH` | `/admin/aspirasi/{id}/status` | Update status (AJAX) |
+| `GET` | `/admin/students` | Halaman daftar akun murid |
+| `GET` | `/admin/students/create` | Form tambah akun murid |
+| `POST` | `/admin/students` | Simpan akun murid baru |
+| `GET` | `/admin/students/{id}/edit` | Form edit akun murid |
+| `PUT` | `/admin/students/{id}` | Update data akun murid |
+| `DELETE` | `/admin/students/{id}` | Hapus akun murid |
 
 ### Atasan (`auth + role:atasan`)
 | Method | URI | Deskripsi |

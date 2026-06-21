@@ -94,9 +94,6 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#features"
-                        class="text-sm font-semibold text-neutral-500 hover:text-black transition-colors">Fitur
-                        Utama</a>
                     <a href="#trending"
                         class="text-sm font-semibold text-neutral-500 hover:text-black transition-colors">Katalog
                         Laporan</a>
@@ -144,8 +141,6 @@
             x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-4"
             class="md:hidden bg-white/95 border-b border-neutral-200 px-8 py-4 space-y-3">
-            <a href="#features" @click="mobileMenuOpen = false"
-                class="block text-base font-semibold text-neutral-500 hover:text-black py-2">Fitur Utama</a>
             <a href="#trending" @click="mobileMenuOpen = false"
                 class="block text-base font-semibold text-neutral-500 hover:text-black py-2">Katalog Laporan</a>
             <a href="#testimonials" @click="mobileMenuOpen = false"
@@ -178,7 +173,7 @@
     <div class="relative w-full bg-white min-h-screen pt-20">
 
         <!-- Hero Section -->
-        <section class="relative overflow-hidden py-24 md:py-32 border-b border-neutral-200 z-10">
+        <section class="relative overflow-hidden py-24 md:py-32 z-10">
             <div class="max-w-7xl mx-auto px-8 relative">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div class="space-y-8 text-left">
@@ -384,34 +379,38 @@
         </section>
 
         <!-- Facilities Categories Marquee -->
-        <div class="py-8 border-y border-neutral-200 overflow-hidden relative w-full z-10 bg-white">
-            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+        <div class="py-8 overflow-hidden relative w-full z-1">
             <div class="animate-marquee flex">
                 <div class="flex gap-8 pr-8 items-center text-sm font-bold text-neutral-700 font-headline">
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">devices</span> LCD Proyektor</div>
+                        <span class="material-symbols-outlined text-black text-xl">devices</span> LCD Proyektor
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
                         <span class="material-symbols-outlined text-black text-xl">ac_unit</span> Air Conditioner (AC)
                     </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">computer</span> Lab Komputer</div>
+                        <span class="material-symbols-outlined text-black text-xl">computer</span> Lab Komputer
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">menu_book</span> Perpustakaan</div>
+                        <span class="material-symbols-outlined text-black text-xl">menu_book</span> Perpustakaan
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
                         <span class="material-symbols-outlined text-black text-xl">sports_soccer</span> Lapangan
-                        Olahraga</div>
+                        Olahraga
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">chair</span> Meja & Kursi</div>
+                        <span class="material-symbols-outlined text-black text-xl">chair</span> Meja & Kursi
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">wifi</span> WiFi Sekolah</div>
+                        <span class="material-symbols-outlined text-black text-xl">wifi</span> WiFi Sekolah
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
                         <span class="material-symbols-outlined text-black text-xl">soup_kitchen</span> Kantin Sehat
@@ -421,27 +420,33 @@
                     aria-hidden="true">
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">devices</span> LCD Proyektor</div>
+                        <span class="material-symbols-outlined text-black text-xl">devices</span> LCD Proyektor
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
                         <span class="material-symbols-outlined text-black text-xl">ac_unit</span> Air Conditioner (AC)
                     </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">computer</span> Lab Komputer</div>
+                        <span class="material-symbols-outlined text-black text-xl">computer</span> Lab Komputer
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">menu_book</span> Perpustakaan</div>
+                        <span class="material-symbols-outlined text-black text-xl">menu_book</span> Perpustakaan
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
                         <span class="material-symbols-outlined text-black text-xl">sports_soccer</span> Lapangan
-                        Olahraga</div>
+                        Olahraga
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">chair</span> Meja & Kursi</div>
+                        <span class="material-symbols-outlined text-black text-xl">chair</span> Meja & Kursi
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
-                        <span class="material-symbols-outlined text-black text-xl">wifi</span> WiFi Sekolah</div>
+                        <span class="material-symbols-outlined text-black text-xl">wifi</span> WiFi Sekolah
+                    </div>
                     <div
                         class="flex items-center gap-2 bg-[#f9f9f9] px-5 py-3 rounded-2xl border border-neutral-200 shadow-sm">
                         <span class="material-symbols-outlined text-black text-xl">soup_kitchen</span> Kantin Sehat

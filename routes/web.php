@@ -11,7 +11,7 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 // Landing page route
-Route::get('/', WelcomeController::class);
+Route::get('/', WelcomeController::class)->name('home');
 
 // Guest routes
 Route::middleware('guest')->group(function () {
@@ -44,6 +44,9 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::post('/aspirasi/{aspirasi}/response', [Admin\AspirasiController::class, 'storeResponse'])->name('aspirasi.storeResponse');
     Route::patch('/aspirasi/{aspirasi}/status', [Admin\AspirasiController::class, 'updateStatus'])->name('aspirasi.updateStatus');
     Route::delete('/aspirasi/{aspirasi}', [Admin\AspirasiController::class, 'destroy'])->name('aspirasi.destroy');
+
+    // CRUD Murid
+    Route::resource('students', Admin\StudentController::class);
 });
 
 // Atasan routes

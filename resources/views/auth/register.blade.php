@@ -28,10 +28,12 @@
                                 class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary">person</span>
                             <input
                                 class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all"
-                                id="name" name="name" value="{{ old('name') }}" placeholder="Nama lengkap Anda" type="text"
-                                required autofocus />
+                                id="name" name="name" value="{{ old('name') }}" placeholder="Nama lengkap Anda"
+                                type="text" required autofocus />
                         </div>
-                        @error('name') <span class="text-error text-xs font-medium px-1">{{ $message }}</span> @enderror
+                        @error('name')
+                            <span class="text-error text-xs font-medium px-1">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     {{-- Email --}}
@@ -42,10 +44,12 @@
                                 class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary">mail</span>
                             <input
                                 class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all"
-                                id="email" name="email" value="{{ old('email') }}" placeholder="nama@gmail.com" type="email"
-                                required />
+                                id="email" name="email" value="{{ old('email') }}" placeholder="nama@gmail.com"
+                                type="email" required />
                         </div>
-                        @error('email') <span class="text-error text-xs font-medium px-1">{{ $message }}</span> @enderror
+                        @error('email')
+                            <span class="text-error text-xs font-medium px-1">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     {{-- Class and Major --}}
@@ -57,8 +61,8 @@
                                     class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary">school</span>
                                 <input
                                     class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all"
-                                    id="kelas" name="kelas" value="{{ old('kelas') }}" placeholder="XII IPA 1" type="text"
-                                    required />
+                                    id="kelas" name="kelas" value="{{ old('kelas') }}" placeholder="XII IPA 1"
+                                    type="text" required />
                             </div>
                         </div>
                         <div class="space-y-2">
@@ -85,7 +89,8 @@
                                     class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-2xl text-on-surface placeholder:text-outline/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all"
                                     id="password" name="password" placeholder="••••••••" type="password" required />
                             </div>
-                            @error('password') <span class="text-error text-xs font-medium px-1">{{ $message }}</span>
+                            @error('password')
+                                <span class="text-error text-xs font-medium px-1">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="space-y-2">
@@ -119,6 +124,12 @@
                         Sudah memiliki akun?
                         <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('login') }}">Masuk
                             Disini</a>
+                    </p>
+
+                    <p class="text-on-surface-variant font-medium">
+                        Kembali Ke Beranda
+                        <a class="text-primary font-extrabold hover:underline ml-1" href="{{ route('home') }}">Kembali Ke
+                            Beranda</a>
                     </p>
                 </footer>
             </div>
