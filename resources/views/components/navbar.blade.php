@@ -4,7 +4,8 @@
 @endphp
 
 <header
-    class="fixed top-0 right-0 left-0 md:left-64 z-50 bg-white/70 backdrop-blur-xl shadow-sm h-16 px-6 flex justify-between items-center">
+    class="fixed top-0 right-0 left-0 z-50 bg-white/70 backdrop-blur-xl shadow-sm h-16 px-6 flex justify-between items-center transition-all duration-300 ease-in-out md:left-[72px]"
+    :class="sidebarOpen ? 'md:left-[260px]' : 'md:left-[72px]'">
     <div class="flex items-center gap-4">
         <!-- <span class="text-xl font-bold tracking-tighter text-blue-700 font-headline">SaranaKu</span> -->
     </div>

@@ -97,7 +97,7 @@
     </style>
     @vite(['resources/js/app.js'])
 </head>
-<body class="bg-surface font-body text-on-surface min-h-screen flex overflow-hidden">
+<body class="bg-surface font-body text-on-surface min-h-screen flex overflow-hidden" x-data="{ sidebarOpen: false }">
     {{-- Sidebar --}}
     <x-sidebar :active="$active ?? ''" />
 
