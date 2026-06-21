@@ -3,7 +3,7 @@
 @php
     $styles = [
         'pending' => 'bg-amber-100 text-amber-700',
-        'diproses' => 'bg-blue-100 text-blue-700',
+        'diproses' => 'bg-slate-100 text-slate-700',
         'diterima' => 'bg-emerald-100 text-emerald-700',
         'ditolak' => 'bg-rose-100 text-rose-700',
         'menunggu_persetujuan_atasan' => 'bg-purple-100 text-purple-700',

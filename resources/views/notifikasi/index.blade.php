@@ -14,10 +14,10 @@
     <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
         <div class="divide-y divide-slate-100">
             @forelse($notifications as $notif)
-                <div class="p-4 hover:bg-slate-50 transition-colors flex items-start gap-4 {{ !$notif->is_read ? 'bg-blue-50/30' : '' }}" 
+                <div class="p-4 hover:bg-slate-50 transition-colors flex items-start gap-4 {{ !$notif->is_read ? 'bg-slate-100/50' : '' }}" 
                      onclick="markAsRead('{{ $notif->id }}', '{{ $notif->data['url'] ?? '#' }}')"
                      style="cursor: pointer;">
-                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
+                    <div class="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0 text-black">
                         <span class="material-symbols-outlined">
                             {{ $notif->tipe === 'aspirasi' ? 'chat' : 'notifications' }}
                         </span>
@@ -32,7 +32,7 @@
                         <p class="text-sm text-slate-600 mt-1">{{ $notif->pesan }}</p>
                     </div>
                     @if(!$notif->is_read)
-                        <div class="w-2 h-2 rounded-full bg-blue-600 self-center"></div>
+                        <div class="w-2 h-2 rounded-full bg-black self-center"></div>
                     @endif
                 </div>
             @empty

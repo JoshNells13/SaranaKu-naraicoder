@@ -12,7 +12,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     @forelse($aspirasi as $item)
         @php
-            $borderColors = ['diterima' => 'border-green-500', 'diproses' => 'border-blue-500', 'pending' => 'border-amber-500', 'ditolak' => 'border-rose-500', 'menunggu_persetujuan_atasan' => 'border-purple-500'];
+            $borderColors = ['diterima' => 'border-green-500', 'diproses' => 'border-slate-400', 'pending' => 'border-amber-500', 'ditolak' => 'border-rose-500', 'menunggu_persetujuan_atasan' => 'border-purple-500'];
             $borderColor = $borderColors[$item->status] ?? 'border-slate-300';
         @endphp
         <div class="bg-surface-container-lowest p-6 rounded-2xl transition-all hover:bg-white hover:shadow-xl hover:-translate-y-1 group flex flex-col justify-between border-t-4 {{ $borderColor }} relative overflow-hidden h-full">

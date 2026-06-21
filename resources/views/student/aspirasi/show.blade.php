@@ -63,7 +63,7 @@
                             {{-- Upvote --}}
                             <button @click="vote('up')" :disabled="loading"
                                 :class="userVote === 'up'
-                                        ? 'bg-primary text-white shadow-md shadow-blue-500/20'
+                                        ? 'bg-primary text-white shadow-md shadow-black/20'
                                         : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high'"
                                 class="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 active:scale-95"
                                 :style="loading ? 'opacity:0.6;cursor:wait' : ''">

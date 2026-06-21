@@ -141,13 +141,13 @@
                             label: 'Persentase (%)',
                             data: categoryPercentages,
                             backgroundColor: [
-                                '#0058be', // primary
-                                '#495e8a', // secondary
-                                '#924700', // tertiary
-                                '#ba1a1a', // error
-                                '#2170e4', // primary-container
-                                '#adc6ff', // primary-fixed-dim
-                                '#d8e2ff', // primary-fixed
+                                '#6366f1', // Indigo
+                                '#10b981', // Emerald
+                                '#f59e0b', // Amber
+                                '#ef4444', // Red
+                                '#8b5cf6', // Purple
+                                '#ec4899', // Pink
+                                '#06b6d4', // Cyan
                             ],
                             borderWidth: 0,
                             hoverOffset: 4

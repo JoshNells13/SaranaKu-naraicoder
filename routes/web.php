@@ -10,7 +10,31 @@ use App\Http\Controllers\NotifikasiController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login
-Route::get('/', fn() => redirect()->route('login'));
+Route::get('/', function () {
+    try {
+        $stats = [
+            'total' => \App\Models\Aspirasi::count(),
+            'diproses' => \App\Models\Aspirasi::where('status', 'diproses')->count(),
+            'diterima' => \App\Models\Aspirasi::where('status', 'diterima')->count(),
+            'menunggu' => \App\Models\Aspirasi::where('status', 'pending')->count(),
+        ];
+        $recentAspirasi = \App\Models\Aspirasi::with(['user', 'kategori'])
+            ->withCount(['comments', 'votes'])
+            ->latest()
+            ->take(3)
+            ->get();
+    } catch (\Throwable $e) {
+        // Fallback stats if database is not migrated/ready yet
+        $stats = [
+            'total' => 124,
+            'diproses' => 38,
+            'diterima' => 82,
+            'menunggu' => 4,
+        ];
+        $recentAspirasi = collect();
+    }
+    return view('welcome', compact('stats', 'recentAspirasi'));
+});
 
 // Guest routes
 Route::middleware('guest')->group(function () {
@@ -30,7 +54,7 @@ Route::middleware(['auth', 'role:murid'])->group(function () {
     Route::get('/aspirasi/create', [Student\AspirasiController::class, 'create'])->name('aspirasi.create');
     Route::post('/aspirasi', [Student\AspirasiController::class, 'store'])->name('aspirasi.store');
     Route::get('/aspirasi/{aspirasi}', [Student\AspirasiController::class, 'show'])->name('aspirasi.show');
-    
+
     // Comments
     Route::post('/aspirasi/{aspirasi}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 });

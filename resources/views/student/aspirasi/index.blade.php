@@ -10,7 +10,7 @@
         <h3 class="text-3xl font-black text-on-surface">{{ $totalSubmitted }}</h3>
     </div>
     <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm">
-        <p class="text-blue-600 text-xs font-bold uppercase tracking-widest mb-1">Dalam Tinjauan</p>
+        <p class="text-zinc-600 text-xs font-bold uppercase tracking-widest mb-1">Dalam Tinjauan</p>
         <h3 class="text-3xl font-black text-on-surface">{{ $inReview }}</h3>
     </div>
     <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm">
@@ -27,10 +27,10 @@
 <div class="flex flex-col gap-6">
     @forelse($aspirasi as $item)
         @php
-            $borderColors = ['diterima' => 'border-green-500', 'diproses' => 'border-blue-500', 'pending' => 'border-amber-500', 'ditolak' => 'border-rose-500'];
+            $borderColors = ['diterima' => 'border-green-500', 'diproses' => 'border-slate-400', 'pending' => 'border-amber-500', 'ditolak' => 'border-rose-500'];
             $borderColor = $borderColors[$item->status] ?? 'border-slate-300';
         @endphp
-        <div class="bg-surface-container-lowest p-6 rounded-2xl transition-all hover:bg-white hover:shadow-xl hover:shadow-blue-500/5 group flex flex-col md:flex-row md:items-center justify-between gap-6 border-l-4 {{ $borderColor }}">
+        <div class="bg-surface-container-lowest p-6 rounded-2xl transition-all hover:bg-white hover:shadow-xl hover:shadow-black/5 group flex flex-col md:flex-row md:items-center justify-between gap-6 border-l-4 {{ $borderColor }}">
             <div class="flex-grow">
                 <div class="flex items-center gap-3 mb-2">
                     <x-status-badge :status="$item->status" />

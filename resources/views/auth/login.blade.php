@@ -58,7 +58,7 @@
                     {{-- Submit --}}
                     <div class="pt-4">
                         <button
-                            class="w-full py-4 editorial-gradient text-white font-extrabold rounded-2xl shadow-xl shadow-primary/20 active:scale-[0.98] hover:scale-[1.02] transition-all hover:brightness-110 flex items-center justify-center gap-2 group"
+                            class="w-full py-4 editorial-gradient text-white font-extrabold rounded-2xl shadow-xl shadow-black/10 active:scale-[0.98] hover:scale-[1.02] transition-all hover:brightness-110 flex items-center justify-center gap-2 group"
                             type="submit">
                             <span>Masuk Sekarang</span>
                             <span

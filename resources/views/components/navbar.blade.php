@@ -29,7 +29,7 @@
                         @if($user)
                             @forelse($user->notifikasi()->latest()->take(5)->get() as $notif)
                                 <div onclick="markAsRead('{{ $notif->id }}', '{{ $notif->data['url'] ?? '#' }}')"
-                                    class="px-4 py-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 last:border-0 {{ !$notif->is_read ? 'bg-blue-50/50' : '' }}">
+                                    class="px-4 py-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 last:border-0 {{ !$notif->is_read ? 'bg-slate-100/60 font-medium' : '' }}">
                                     <p class="text-sm {{ !$notif->is_read ? 'font-bold text-slate-900' : 'text-slate-700' }}">
                                         {{ $notif->judul }}</p>
                                     <p class="text-xs text-slate-500 line-clamp-2">{{ $notif->pesan }}</p>
@@ -42,7 +42,7 @@
                     </div>
                     @if($user && $user->notifikasi()->count() > 0)
                         <a href="{{ route('notifikasi.index') }}"
-                            class="block py-2 text-center text-xs font-bold text-blue-600 hover:bg-slate-50 border-t border-slate-100">
+                            class="block py-2 text-center text-xs font-bold text-black hover:bg-slate-50 border-t border-slate-100">
                             Lihat Semua
                         </a>
                     @endif
