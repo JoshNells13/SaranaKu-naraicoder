@@ -7,34 +7,11 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Atasan;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-// Redirect root to login
-Route::get('/', function () {
-    try {
-        $stats = [
-            'total' => \App\Models\Aspirasi::count(),
-            'diproses' => \App\Models\Aspirasi::where('status', 'diproses')->count(),
-            'diterima' => \App\Models\Aspirasi::where('status', 'diterima')->count(),
-            'menunggu' => \App\Models\Aspirasi::where('status', 'pending')->count(),
-        ];
-        $recentAspirasi = \App\Models\Aspirasi::with(['user', 'kategori'])
-            ->withCount(['comments', 'votes'])
-            ->latest()
-            ->take(3)
-            ->get();
-    } catch (\Throwable $e) {
-        // Fallback stats if database is not migrated/ready yet
-        $stats = [
-            'total' => 124,
-            'diproses' => 38,
-            'diterima' => 82,
-            'menunggu' => 4,
-        ];
-        $recentAspirasi = collect();
-    }
-    return view('welcome', compact('stats', 'recentAspirasi'));
-});
+// Landing page route
+Route::get('/', WelcomeController::class);
 
 // Guest routes
 Route::middleware('guest')->group(function () {

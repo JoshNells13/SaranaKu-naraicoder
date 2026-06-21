@@ -73,8 +73,9 @@ laravel/
 │   │   │   ├── Student/
 │   │   │   │   ├── DashboardController.php
 │   │   │   │   └── AspirasiController.php
+│   │   │   ├── NotifikasiController.php
 │   │   │   ├── VoteController.php
-│   │   │   └── NotifikasiController.php
+│   │   │   └── WelcomeController.php
 │   │   ├── Middleware/
 │   │   │   └── RoleMiddleware.php
 │   │   └── Requests/
@@ -264,6 +265,7 @@ Seeder otomatis membuat akun berikut:
 ### Guest
 | Method | URI | Deskripsi |
 |--------|-----|-----------|
+| `GET` | `/` | Halaman utama / landing page (statistik & aspirasi terbaru) |
 | `GET` | `/login` | Halaman login |
 | `POST` | `/login` | Proses login |
 | `GET` | `/register` | Halaman register |
