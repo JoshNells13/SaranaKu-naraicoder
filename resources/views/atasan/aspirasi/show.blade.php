@@ -87,7 +87,8 @@
         <div class="lg:col-span-7">
             <div class="bg-surface-container-lowest rounded-xl p-8 editorial-shadow">
                 <h3 class="text-2xl font-bold font-headline text-on-surface mb-2">Persetujuan Akhir</h3>
-                <p class="text-on-surface-variant text-sm mb-8">Berikan keputusan akhir dan tentukan estimasi waktu penyelesaian.</p>
+                <p class="text-on-surface-variant text-sm mb-8">Berikan keputusan akhir dan tentukan estimasi waktu
+                    penyelesaian.</p>
 
                 <form class="space-y-6" method="POST" action="{{ route('atasan.aspirasi.updateStatus', $aspirasi) }}">
                     @csrf
@@ -104,16 +105,19 @@
                                 </option>
                                 <option value="ditolak" {{ $aspirasi->status === 'ditolak' ? 'selected' : '' }}>Ditolak
                                 </option>
-                                <option value="diproses" {{ $aspirasi->status === 'diproses' ? 'selected' : '' }}>Diproses (Belum Selesai)
+                                <option value="diproses" {{ $aspirasi->status === 'diproses' ? 'selected' : '' }}>Diproses
+                                    (Belum Selesai)
                                 </option>
                             </select>
                             @error('status') <span class="text-error text-xs font-medium">{{ $message }}</span> @enderror
                         </div>
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-on-surface-variant">Estimasi Waktu Selesai</label>
-                            <input type="datetime-local" name="estimasi_waktu" value="{{ $aspirasi->estimasi_waktu ? $aspirasi->estimasi_waktu->format('Y-m-d\TH:i') : '' }}"
+                            <input type="datetime-local" name="estimasi_waktu" min="{{ now()->format('Y-m-d\TH:i') }}"
+                                value="{{ old('estimasi_waktu', $aspirasi->estimasi_waktu ? $aspirasi->estimasi_waktu->format('Y-m-d\TH:i') : '') }}"
                                 class="w-full bg-surface-container-highest border-0 rounded-lg px-4 py-4 text-on-surface focus:ring-2 focus:ring-primary outline-none">
-                            @error('estimasi_waktu') <span class="text-error text-xs font-medium">{{ $message }}</span> @enderror
+                            @error('estimasi_waktu') <span class="text-error text-xs font-medium">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 

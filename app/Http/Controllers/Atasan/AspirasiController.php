@@ -46,7 +46,7 @@ class AspirasiController extends Controller
     {
         $request->validate([
             'status' => 'required|in:diterima,ditolak,diproses',
-            'estimasi_waktu' => 'nullable|date',
+            'estimasi_waktu' => 'required_if:status,diproses,diterima|date|after_or_equal:now',
         ]);
 
         $aspirasi->update([
