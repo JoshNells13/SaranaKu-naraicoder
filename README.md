@@ -378,27 +378,6 @@ Klik Downvote → Jika belum vote    → Tambah downvote (tombol aktif merah)
 
 ---
 
-## 🎨 Design System
-
-Aplikasi menggunakan **Material Design 3** color palette:
-
-| Token | Hex | Kegunaan |
-|-------|-----|----------|
-| `primary` | `#0058be` | Warna utama (tombol, link) |
-| `primary-container` | `#2170e4` | Background elemen utama |
-| `surface` | `#f7f9fb` | Background halaman |
-| `surface-container-lowest` | `#ffffff` | Background kartu |
-| `on-surface` | `#191c1e` | Teks utama |
-| `on-surface-variant` | `#424754` | Teks sekunder |
-| `error` | `#ba1a1a` | Warna error |
-| `tertiary` | `#924700` | Warna aksen ketiga |
-
-### Custom CSS Classes
-- `.editorial-gradient` — Gradient biru untuk hero sections
-- `.soft-elevation` — Shadow halus untuk kartu besar
-- `.glass-effect` — Glassmorphism dengan backdrop blur
-- `.editorial-shadow` — Shadow biru halus
-- `.paper-shadow` — Shadow minimal untuk tabel
 
 ---
 
@@ -429,13 +408,6 @@ Aplikasi menggunakan **Material Design 3** color palette:
 
 ---
 
-## 🤝 Kontribusi
-
-1. Fork repository
-2. Buat branch fitur (`git checkout -b fitur/nama-fitur`)
-3. Commit perubahan (`git commit -m 'Tambah fitur X'`)
-4. Push ke branch (`git push origin fitur/nama-fitur`)
-5. Buat Pull Request
 
 ---
 
